@@ -10,6 +10,8 @@ public class Player_Controller : MonoBehaviour
     [Tooltip("Movement Speed Variable for running")] [SerializeField] float runSpeed = 6.0f;
     [Tooltip("Minimum UP Down Clamp Rotation")] [SerializeField] float minClamp;
     [Tooltip("Maximum UP Down Clamp Rotation")] [SerializeField] float maxClamp;
+    [Tooltip("StartPoint for Ground check, bottom of feet")] [SerializeField] Transform groundcheckLineStart;
+    [Tooltip("EndPoint for Ground check, how far below feet do you want to check?")] [SerializeField] Transform groundcheckLineStop;
     [SerializeField] GameObject pCamera;
     bool walk;
     float clampedX;
@@ -22,6 +24,7 @@ public class Player_Controller : MonoBehaviour
         divineAnim.SetBool("Walk", walk);
         
         PlayerAndCameraRotation();
+        
 
     }
 
@@ -80,6 +83,12 @@ public class Player_Controller : MonoBehaviour
         }
 
 
+    }
+
+    bool PlayerGrounded()
+    {
+        bool grounded = Physics.Linecast(groundcheckLineStart.position, groundcheckLineStop.position, 1 << LayerMask.NameToLayer("ground"));
+        return grounded;
     }
     #endregion
 }
