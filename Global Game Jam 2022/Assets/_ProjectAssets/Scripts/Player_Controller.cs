@@ -4,49 +4,82 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
-  
+    #region Global Variables
     [Tooltip("Animator for Divinity")] [SerializeField] Animator divineAnim;
     [Tooltip("Movement Speed Variable not running")] [SerializeField] float walkSpeed = 3.0f;
+    [Tooltip("Movement Speed Variable for running")] [SerializeField] float runSpeed = 6.0f;
     [Tooltip("Minimum UP Down Clamp Rotation")] [SerializeField] float minClamp;
     [Tooltip("Maximum UP Down Clamp Rotation")] [SerializeField] float maxClamp;
     [SerializeField] GameObject pCamera;
     bool walk;
     float clampedX;
     float rotY;
-   
+    #endregion
+
+    #region Unity Native
     private void Update()
     {
-        divineAnim.SetBool("Walk",walk);
+        divineAnim.SetBool("Walk", walk);
+        
+        PlayerAndCameraRotation();
+
+    }
+
+    
+
+    void LateUpdate()
+    {
+        WalkingMovement();
+
+    }
+    #endregion
+
+    #region Custom
+    private void PlayerAndCameraRotation()
+    {
         clampedX -= Input.GetAxis("Mouse Y");
         rotY += Input.GetAxis("Mouse X");
         clampedX = Mathf.Clamp(clampedX, minClamp, maxClamp);
         pCamera.transform.localEulerAngles = new Vector3(clampedX, 0, 0);
         transform.localEulerAngles = new Vector3(0, rotY, 0);
-
-        
     }
-
-    void LateUpdate()
+    private void WalkingMovement()
     {
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
 
-        if (inputVertical >= 0.01f)
+        if (inputVertical >= 0.01f && !Input.GetKey(KeyCode.LeftShift))
         {
+            divineAnim.SetBool("Run", false);
             transform.Translate(0, 0, walkSpeed * Time.deltaTime);
             walk = true;
+           
+        }
+        else if (inputVertical >= 0.01f && Input.GetKey(KeyCode.LeftShift))
+        {
+            walk = false;
+            divineAnim.SetBool("Run", true);
+            transform.Translate(0, 0, runSpeed * Time.deltaTime);
+           
+           
         }
         else if (inputVertical <= -0.01f)
         {
+            divineAnim.SetBool("Run", false);
             transform.Translate(0, 0, -walkSpeed * Time.deltaTime);
             walk = true;
+            
+
         }
         else
         {
-            
+            divineAnim.SetBool("Run", false);
             inputVertical = 0;
             walk = false;
+          
         }
-       
+
+
     }
+    #endregion
 }
