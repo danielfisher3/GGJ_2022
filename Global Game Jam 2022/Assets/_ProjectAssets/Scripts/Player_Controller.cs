@@ -24,8 +24,9 @@ public class Player_Controller : MonoBehaviour
         divineAnim.SetBool("Walk", walk);
         
         PlayerAndCameraRotation();
+        LightAttack();
+        HardAttck();
         
-
     }
 
     
@@ -85,6 +86,22 @@ public class Player_Controller : MonoBehaviour
 
     }
 
+    void LightAttack()
+    {
+        if (Input.GetButtonUp("LightAttack"))
+        {
+            divineAnim.SetTrigger("LAttack1");
+           
+           
+        }
+    }
+    void HardAttck()
+    {
+        if (Input.GetButtonUp("HardAttack"))
+        {
+            divineAnim.SetTrigger("HAttack1");
+        }
+    }
     bool PlayerGrounded()
     {
         bool grounded = Physics.Linecast(groundcheckLineStart.position, groundcheckLineStop.position, 1 << LayerMask.NameToLayer("ground"));
