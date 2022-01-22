@@ -1,10 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using Panda;
 
 public class SkellyAI : MonoBehaviour
 {
-    // Start is called before the first frame update
+    NavMeshAgent enemyAgent;
+    Animator enemyAnim;
+
+    
+    private void Awake()
+    {
+        enemyAgent = GetComponent<NavMeshAgent>();
+        enemyAnim = GetComponentInChildren<Animator>();
+    }
     void Start()
     {
         
@@ -13,6 +23,6 @@ public class SkellyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+       
     }
 }

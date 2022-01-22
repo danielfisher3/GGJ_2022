@@ -8,12 +8,13 @@ public class Player_Controller : MonoBehaviour
     [Tooltip("Animator for Divinity")] [SerializeField] Animator divineAnim;
     [Tooltip("Movement Speed Variable not running")] [SerializeField] float walkSpeed = 3.0f;
     [Tooltip("Movement Speed Variable for running")] [SerializeField] float runSpeed = 6.0f;
-    [Tooltip("Movement Speed Variable for running")] [SerializeField] float rotSpeed = 1.0f;
+    [Tooltip("Are you in Demon form?")] public bool demonForm = false;
     [Tooltip("Minimum UP Down Clamp Rotation")] [SerializeField] float minClamp;
     [Tooltip("Maximum UP Down Clamp Rotation")] [SerializeField] float maxClamp;
     [Tooltip("StartPoint for Ground check, bottom of feet")] [SerializeField] Transform groundcheckLineStart;
     [Tooltip("EndPoint for Ground check, how far below feet do you want to check?")] [SerializeField] Transform groundcheckLineStop;
     [SerializeField] GameObject pCamera;
+    
     bool walk;
     float clampedX;
     float inputHorizontal;
@@ -22,12 +23,19 @@ public class Player_Controller : MonoBehaviour
     #endregion
 
     #region Unity Native
+    private void Start()
+    {
+        
+        
+        
+    }
     private void Update()
     {
         divineAnim.SetBool("Walk", walk);
         PlayerAndCameraRotation();
         LightAttack();
         HardAttck();
+        DivineDemonSwap();
         
     }
 
@@ -43,12 +51,12 @@ public class Player_Controller : MonoBehaviour
     #region Custom
     private void PlayerAndCameraRotation()
     {
-        inputHorizontal += Input.GetAxis("Horizontal");
+        
         clampedX -= Input.GetAxis("Mouse Y");
         clampedX = Mathf.Clamp(clampedX, minClamp, maxClamp);
-        rotY -= Input.GetAxis("Mouse X");
+        rotY += Input.GetAxis("Mouse X");
         pCamera.transform.localEulerAngles = new Vector3(clampedX, 0, 0);
-        transform.localEulerAngles =  new Vector3(0, inputHorizontal, 0);
+        transform.localEulerAngles =  new Vector3(0, rotY, 0);
         
     }
     private void WalkingMovement()
@@ -90,7 +98,19 @@ public class Player_Controller : MonoBehaviour
         }
 
     }
-
+    void DivineDemonSwap()
+    {
+        if(Input.GetButtonUp(("DemonSwap")) && !demonForm)
+        {
+            print("DEMON FORM");
+            demonForm = true;
+        }
+        else if(Input.GetButtonUp(("DemonSwap")) && demonForm)
+        {
+            print("SAINT FORM");
+            demonForm = false;
+        }
+    }
     void LightAttack()
     {
         if (Input.GetButtonUp("LightAttack"))
