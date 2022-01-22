@@ -6,7 +6,52 @@ ModelImporter:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_armor
+    second: {fileID: 2100000, guid: 8ca4e0802739fe24f879e2de414df8a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_body
+    second: {fileID: 2100000, guid: e57ced363f8315447a5748eaaf844721, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_chest
+    second: {fileID: 2100000, guid: da2471786b63f394095adaf59a010c28, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_cloak
+    second: {fileID: 2100000, guid: 12f29c85225861346920f52bedae4159, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_hands
+    second: {fileID: 2100000, guid: 3fa82b7794ff20a48bb9bef594687b04, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_head
+    second: {fileID: 2100000, guid: c6636518540636c44afcf2b86d4b78ab, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_legs
+    second: {fileID: 2100000, guid: 13193fe66ae8d4c48a63027821ddd497, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_shoulders
+    second: {fileID: 2100000, guid: b634f7bd51faf1c42821f552c1b1867c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mat_Black_King_staff
+    second: {fileID: 2100000, guid: 665b3d5429ae80a41a0bd1fe442e5204, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
