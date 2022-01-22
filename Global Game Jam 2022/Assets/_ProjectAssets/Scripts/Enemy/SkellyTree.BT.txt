@@ -1,2 +1,9 @@
 tree("Root")
-	Succeed
+	repeat mute tree("Wander")
+
+tree("Wander")
+	sequence
+		MoveToDestination
+		MadeItToDestination
+		Wait(2.0)
+
