@@ -4751,36 +4751,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d53f6a011e7d1e748a8526d54096ad49, type: 3}
---- !u!1 &610792687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 610792688}
-  m_Layer: 0
-  m_Name: GroundLineStop
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &610792688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 610792687}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.33, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1345319651}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &610901602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 223df1a232510514abfa5e85ce82784e, type: 3}
@@ -8289,14 +8259,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 545478949345791474, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
-      propertyPath: groundcheckLineStop
-      value: 
-      objectReference: {fileID: 610792688}
-    - target: {fileID: 545478949345791474, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
-      propertyPath: groundcheckLineStart
-      value: 
-      objectReference: {fileID: 1213968183}
     - target: {fileID: 545478949345791475, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -9674,36 +9636,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec9d86d70b0845046b3fdcd18253b259, type: 3}
---- !u!1 &1213968182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1213968183}
-  m_Layer: 0
-  m_Name: GroundLineStart
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1213968183
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213968182}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1345319651}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1227481258
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10211,11 +10143,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba63b72d614f5cf42836762c95b5bfa6, type: 3}
---- !u!4 &1345319651 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 545478949345791475, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
-  m_PrefabInstance: {fileID: 1038222708}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1351992390
 PrefabInstance:
   m_ObjectHideFlags: 0
