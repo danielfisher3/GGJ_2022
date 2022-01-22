@@ -51,14 +51,14 @@ public class Player_Controller : MonoBehaviour
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
 
-        if (inputVertical >= 0.01f && !Input.GetKey(KeyCode.LeftShift))
+        if (inputVertical >= 0.01f && !Input.GetButton("Run"))
         {
             divineAnim.SetBool("Run", false);
             transform.Translate(0, 0, walkSpeed * Time.deltaTime);
             walk = true;
            
         }
-        else if (inputVertical >= 0.01f && Input.GetKey(KeyCode.LeftShift))
+        else if (inputVertical >= 0.01f && Input.GetButton("Run"))
         {
             walk = false;
             divineAnim.SetBool("Run", true);
