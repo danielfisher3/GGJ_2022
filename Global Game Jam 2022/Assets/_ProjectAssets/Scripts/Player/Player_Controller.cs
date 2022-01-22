@@ -36,6 +36,7 @@ public class Player_Controller : MonoBehaviour
         LightAttack();
         HardAttck();
         DivineDemonSwap();
+        Sneer();
         
     }
 
@@ -125,6 +126,14 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetButtonUp("HardAttack"))
         {
             divineAnim.SetTrigger("HAttack1");
+        }
+    }
+
+    void Sneer()
+    {
+        if(Input.GetKeyUp(KeyCode.Mouse2))
+        {
+            divineAnim.SetTrigger("Sneer");
         }
     }
     bool PlayerGrounded()
