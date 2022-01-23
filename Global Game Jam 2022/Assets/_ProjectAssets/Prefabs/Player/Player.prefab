@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: 252464415}
   - component: {fileID: 252464418}
   - component: {fileID: 252464417}
-  - component: {fileID: 252464416}
   m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
@@ -157,19 +156,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &252464416
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 252464414}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &716404759
 GameObject:
   m_ObjectHideFlags: 0
@@ -1924,14 +1910,14 @@ SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 4142129851676265437, guid: 5f3601539c347504786804fafd9cf24d, type: 3}
   m_PrefabInstance: {fileID: 545478948578504180}
   m_PrefabAsset: {fileID: 0}
---- !u!137 &7385851582714197535 stripped
-SkinnedMeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 7056646760836766699, guid: 5f3601539c347504786804fafd9cf24d, type: 3}
-  m_PrefabInstance: {fileID: 545478948578504180}
-  m_PrefabAsset: {fileID: 0}
 --- !u!137 &5986674132561356908 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 6090307404651513240, guid: 5f3601539c347504786804fafd9cf24d, type: 3}
+  m_PrefabInstance: {fileID: 545478948578504180}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &7385851582714197535 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 7056646760836766699, guid: 5f3601539c347504786804fafd9cf24d, type: 3}
   m_PrefabInstance: {fileID: 545478948578504180}
   m_PrefabAsset: {fileID: 0}
 --- !u!137 &1153688469543786359 stripped
