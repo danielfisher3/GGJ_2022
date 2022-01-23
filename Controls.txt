@@ -1,0 +1,12 @@
+W- move forward
+S- Move backWards
+A- Demon Form/Divine Form
+R- Run
+I- Inventory
+M- Map
+
+Mouse movement - Rotate/Look
+Left mouse click - light Attack
+Right Mouse click - Heavy attack
+Mouse Scroll Wheel Click - Taunt
+
