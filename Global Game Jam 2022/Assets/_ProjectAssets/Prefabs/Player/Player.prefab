@@ -418,6 +418,7 @@ MonoBehaviour:
   groundcheckLineStart: {fileID: 6723924582866293382}
   groundcheckLineStop: {fileID: 3939329424535536107}
   liveMap: {fileID: 0}
+  inventoryPanel: {fileID: 0}
   pCamera: {fileID: 545478949342488301}
   playerGUIController: {fileID: 0}
   sword1: {fileID: 1893006376}

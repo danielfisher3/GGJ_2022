@@ -14,6 +14,7 @@ public class Player_Controller : MonoBehaviour
     [Tooltip("StartPoint for Ground check, bottom of feet")] [SerializeField] Transform groundcheckLineStart;
     [Tooltip("EndPoint for Ground check, how far below feet do you want to check?")] [SerializeField] Transform groundcheckLineStop;
     [Tooltip("Map Object")] [SerializeField] GameObject liveMap;
+    [Tooltip("Inventory Panel")] [SerializeField] GameObject inventoryPanel;
     [SerializeField] GameObject pCamera;
     [SerializeField] PlayerHealthStaminaUI playerGUIController;
     public Collider sword1;
@@ -39,6 +40,10 @@ public class Player_Controller : MonoBehaviour
         {
             liveMap.SetActive(false);
         }
+        if (inventoryPanel.activeInHierarchy)
+        {
+            inventoryPanel.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -47,6 +52,7 @@ public class Player_Controller : MonoBehaviour
         LightAttack();
         HardAttck();
         OpenCloseMap();
+        OpenCloseInventory();
         DivineDemonSwap();
         Sneer();
         
@@ -163,13 +169,32 @@ public class Player_Controller : MonoBehaviour
             if (liveMap.activeInHierarchy)
             {
                 liveMap.SetActive(false);
+                
             }
             else if (!liveMap.activeInHierarchy)
             {
                 liveMap.SetActive(true);
+               
             }
         }
     }
+    void OpenCloseInventory()
+    {
+        if (Input.GetKeyUp(KeyCode.I))
+        {
+            if (inventoryPanel.activeInHierarchy)
+            {
+                inventoryPanel.SetActive(false);
+                
+            }
+            else if (!inventoryPanel.activeInHierarchy)
+            {
+                inventoryPanel.SetActive(true);
+               
+            }
+        }
+    }
+
     bool PlayerGrounded()
     {
         bool grounded = Physics.Linecast(groundcheckLineStart.position, groundcheckLineStop.position, 1 << LayerMask.NameToLayer("ground"));
