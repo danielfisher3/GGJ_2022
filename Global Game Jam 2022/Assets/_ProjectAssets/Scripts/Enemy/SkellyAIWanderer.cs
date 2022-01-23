@@ -6,7 +6,7 @@ using Panda;
 
 public class SkellyAIWanderer : MonoBehaviour
 {
-    
+    GameObject player;
     NavMeshAgent enemyAgent;
     Animator enemyAnim;
     Rigidbody enemyRGBY;
@@ -18,24 +18,30 @@ public class SkellyAIWanderer : MonoBehaviour
     [Tooltip("Enemy Wander Radius Distance")]
     [SerializeField] float wanderDistance = 25.0f;
 
-    [SerializeField] Transform line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop;
+    [SerializeField] Transform line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop,line4Start,line4Stop, line5Start,line5Stop;
     private void Awake()
     {
        
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponentInChildren<Animator>();
         enemyRGBY = GetComponent<Rigidbody>();
+        
     }
     void Start()
     {
         enemyAgent.speed = eMoveSpeed;
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemyAnim.SetBool("Walk", walking);
+        
         print(CanSeePlayer());
+    }
+    private void LateUpdate()
+    {
+        enemyAnim.SetBool("Walk", walking);
     }
     [Task]
     public void MoveToDestination()
@@ -59,7 +65,16 @@ public class SkellyAIWanderer : MonoBehaviour
     [Task]
     public bool CanSeePlayer()
     {
-        return EnemyUtilities.CanSeePlayer(line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop);
+        return EnemyUtilities.CanSeePlayer(line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop,line4Start,line4Stop,line5Start,line5Stop);
+    }
+
+    [Task]
+    public void StopAndLookAround()
+    {
+        enemyAgent.isStopped = true;
+        walking = false;
+        enemyAgent.ResetPath();
+        Task.current.Succeed();
     }
     
 }

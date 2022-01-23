@@ -1,3 +1,27 @@
 tree("Root")
-	Succeed
+	repeat parallel mute tree("FreeRoam")
+	
+
+tree("FreeRoam")
+	fallback
+		while not CanSeePlayer
+			tree("Wander")
+		while CanSeePlayer
+			tree("LineUpOnPlayer")
+
+
+tree("Wander")
+	sequence
+		MoveToDestination
+		MadeItToDestination
+		Wait(2.0)
+
+tree("LineUpOnPlayer")
+	sequence
+		StopAndLookAround
+		Wait(2.0)
+
+
+
+		
 
