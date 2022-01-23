@@ -18,7 +18,7 @@ public class SkellyAIWanderer : MonoBehaviour
     [Tooltip("Enemy Wander Radius Distance")]
     [SerializeField] float wanderDistance = 25.0f;
 
-    
+    [SerializeField] Transform line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop;
     private void Awake()
     {
        
@@ -35,6 +35,7 @@ public class SkellyAIWanderer : MonoBehaviour
     void Update()
     {
         enemyAnim.SetBool("Walk", walking);
+        print(CanSeePlayer());
     }
     [Task]
     public void MoveToDestination()
@@ -53,6 +54,12 @@ public class SkellyAIWanderer : MonoBehaviour
             walking = false;
             Task.current.Succeed();
         }
+    }
+
+    [Task]
+    public bool CanSeePlayer()
+    {
+        return EnemyUtilities.CanSeePlayer(line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop);
     }
     
 }

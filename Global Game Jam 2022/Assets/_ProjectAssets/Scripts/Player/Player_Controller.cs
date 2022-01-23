@@ -16,6 +16,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] GameObject pCamera;
     [SerializeField] PlayerHealthStaminaUI playerGUIController;
     public Collider sword1;
+   
     
     bool walk;
     float clampedX;
