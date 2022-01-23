@@ -13,6 +13,7 @@ public class Player_Controller : MonoBehaviour
     [Tooltip("Maximum UP Down Clamp Rotation")] [SerializeField] float maxClamp;
     [Tooltip("StartPoint for Ground check, bottom of feet")] [SerializeField] Transform groundcheckLineStart;
     [Tooltip("EndPoint for Ground check, how far below feet do you want to check?")] [SerializeField] Transform groundcheckLineStop;
+    [Tooltip("Map Object")] [SerializeField] GameObject liveMap;
     [SerializeField] GameObject pCamera;
     [SerializeField] PlayerHealthStaminaUI playerGUIController;
     public Collider sword1;
@@ -26,11 +27,18 @@ public class Player_Controller : MonoBehaviour
     #endregion
 
     #region Unity Native
+    private void Awake()
+    {
+       
+    }
     private void Start()
     {
         sword1.enabled = false;
-       
-      
+
+        if (liveMap.activeInHierarchy)
+        {
+            liveMap.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -38,6 +46,7 @@ public class Player_Controller : MonoBehaviour
         PlayerAndCameraRotation();
         LightAttack();
         HardAttck();
+        OpenCloseMap();
         DivineDemonSwap();
         Sneer();
         
@@ -144,6 +153,21 @@ public class Player_Controller : MonoBehaviour
         if(Input.GetKeyUp(KeyCode.Mouse2))
         {
             divineAnim.SetTrigger("Sneer");
+        }
+    }
+
+    void OpenCloseMap()
+    {
+        if (Input.GetKeyUp(KeyCode.M))
+        {
+            if (liveMap.activeInHierarchy)
+            {
+                liveMap.SetActive(false);
+            }
+            else if (!liveMap.activeInHierarchy)
+            {
+                liveMap.SetActive(true);
+            }
         }
     }
     bool PlayerGrounded()
