@@ -14,6 +14,8 @@ public class Player_Controller : MonoBehaviour
     [Tooltip("StartPoint for Ground check, bottom of feet")] [SerializeField] Transform groundcheckLineStart;
     [Tooltip("EndPoint for Ground check, how far below feet do you want to check?")] [SerializeField] Transform groundcheckLineStop;
     [SerializeField] GameObject pCamera;
+    [SerializeField] PlayerHealthStaminaUI playerGUIController;
+    public Collider sword1;
     
     bool walk;
     float clampedX;
@@ -25,9 +27,9 @@ public class Player_Controller : MonoBehaviour
     #region Unity Native
     private void Start()
     {
-        
-        
-        
+        sword1.enabled = false;
+       
+      
     }
     private void Update()
     {
@@ -116,15 +118,22 @@ public class Player_Controller : MonoBehaviour
     {
         if (Input.GetButtonUp("LightAttack"))
         {
+            playerGUIController.DecreaseStamina(10);
+            sword1.enabled = true;
+         
             divineAnim.SetTrigger("LAttack1");
-           
-           
+         
         }
     }
     void HardAttck()
     {
+        
         if (Input.GetButtonUp("HardAttack"))
         {
+           
+            playerGUIController.DecreaseStamina(20);
+            sword1.enabled = true;
+            
             divineAnim.SetTrigger("HAttack1");
         }
     }

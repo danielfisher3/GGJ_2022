@@ -17,7 +17,7 @@ public class PlayerHealthStaminaUI : MonoBehaviour
     [SerializeField] int currentHealth;
     [SerializeField] int currentStamina;
 
-
+    float StaminaTimer;
     private void Awake()
     {
         pHealthSlider.maxValue = maxHealth;
@@ -30,7 +30,7 @@ public class PlayerHealthStaminaUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StaminaRegenerator());
+        
     }
 
     // Update is called once per frame
@@ -38,6 +38,7 @@ public class PlayerHealthStaminaUI : MonoBehaviour
     {
         pStaminaSlider.value = currentStamina;
         pHealthSlider.value = currentHealth;
+        StaminaRegen();
     }
 
     public void DecreaseHealth(int decreaseAmount)
@@ -53,12 +54,16 @@ public class PlayerHealthStaminaUI : MonoBehaviour
     {
         currentHealth += increaseAmount;
     }
-    IEnumerator StaminaRegenerator()
+    public void StaminaRegen()
     {
-        while(currentStamina != maxStamina)
+       if(currentStamina < maxStamina)
         {
-            yield return new WaitForSecondsRealtime(1.0f);
-            currentStamina += 1;
+            StaminaTimer += Time.deltaTime;
+            if(StaminaTimer >= 0.1f)
+            {
+                currentStamina += 1;
+                StaminaTimer = 0;
+            }
         }
     }
 }
