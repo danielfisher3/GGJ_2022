@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2131070897, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.7148438
+      objectReference: {fileID: 0}
     - target: {fileID: 1060838567698524540, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -312,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 545478949345791475, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.4209003
+      value: -9.11
       objectReference: {fileID: 0}
     - target: {fileID: 545478949345791475, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -344,6 +348,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
+--- !u!1 &1407255718 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 545478949345791472, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
+  m_PrefabInstance: {fileID: 1056729167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1407255723 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 545478949345791475, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
+  m_PrefabInstance: {fileID: 1056729167}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1424412387 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1060838568438802670, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
@@ -580,12 +594,54 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4523541653433939869, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1407255718}
+    - target: {fileID: 4523541653433939869, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
+      propertyPath: wanderDistance
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4523541653433939869, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
+      propertyPath: playerLookPoint
+      value: 
+      objectReference: {fileID: 1984988071}
     - target: {fileID: 6184915447162702890, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
       propertyPath: m_Name
       value: SwordSkelly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
+--- !u!1 &1984988070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984988071}
+  m_Layer: 6
+  m_Name: LookHere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1984988071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984988070}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.72, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1407255723}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2069856424
 GameObject:
   m_ObjectHideFlags: 0

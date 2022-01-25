@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 6912919703181301531}
   - component: {fileID: 2269345913175485995}
   - component: {fileID: 313599273026789998}
+  - component: {fileID: 1574397173}
   m_Layer: 8
   m_Name: SwordSkelly
   m_TagString: Untagged
@@ -842,6 +843,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 8152712491080957199}
+--- !u!114 &1574397173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6184915447162702890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17e43e7170fb45b4b81dcd16d0ff55d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scripts:
+  - {fileID: 4900000, guid: 7114bf52565ad2043824b61994afdacf, type: 3}
+  autoReset: 1
+  tickOn: 0
+  sourceInfos:
+  - isFoldout: 1
+    breakPoints: 
+    breakPointStatuses: 
+    collapsedLines: 
+    btScript: 
 --- !u!1 &6379625523544951405
 GameObject:
   m_ObjectHideFlags: 0

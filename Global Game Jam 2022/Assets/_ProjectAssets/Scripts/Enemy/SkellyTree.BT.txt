@@ -1,19 +1,65 @@
 tree("Root")
-	repeat parallel mute tree("FreeRoam")
-	
+	repeat mute tree("FreeRoam")
+
 
 tree("FreeRoam")
 	fallback
-		while not CanSeePlayer
+		while PlayerFarEnoughAwayToPatrol(5.0)
 			tree("Wander")
-		
+		while not PlayerFarEnoughAwayToPatrol(5.0)
+			tree("AssessSituation")
 
 
 tree("Wander")
 	sequence
-		MoveToDestination
-		MadeItToDestination
+		GoToDestination
+		DetermineIfAtWaypoint
 		Wait(2.0)
+		
+		
+tree("AssessSituation")
+	fallback
+		while not CheckIfPlayerIsOnEnemy
+			tree("LookForPlayer")
+		while CheckIfPlayerIsOnEnemy
+			tree("PrepareForAttack")
+
+
+
+tree("LookForPlayer")
+	fallback
+		while not CheckIfPlayerIsOnEnemy
+			tree("TargetPlayer")
+		while CheckIfPlayerIsOnEnemy
+			tree("PrepareForAttack")
+
+tree("PrepareForAttack")
+	fallback
+		while not InPosition
+			tree("RandomMovement")
+		while InPosition
+			tree("Attack")
+			
+			
+
+tree("TargetPlayer")
+	sequence
+		LineUpOnPlayer
+		tree("RandomMovementTowardsPlayer")
+
+tree("RandomMovementTowardsPlayer")
+	fallback
+		while not InPosition
+			tree("RandomMovement")
+		while InPosition
+			tree("PrepareForAttack")
+
+tree("RandomMovement")
+	Succeed
+	
+			
+tree("Attack")
+	Succeed
 
 
 

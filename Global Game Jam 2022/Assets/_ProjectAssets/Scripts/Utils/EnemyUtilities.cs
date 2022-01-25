@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public static class EnemyUtilities 
+public static class EnemyUtilities
 {
-    
 
-    public static bool CanSeePlayer(Transform line1Start,Transform line1Stop,Transform line2Start,Transform line2Stop,Transform line3Start,
-        Transform line3Stop,Transform line4Start,Transform line4Stop,Transform line5Start, Transform line5Stop)
+
+    public static bool CanSeePlayer(Transform line1Start, Transform line1Stop, Transform line2Start, Transform line2Stop, Transform line3Start,
+        Transform line3Stop, Transform line4Start, Transform line4Stop, Transform line5Start, Transform line5Stop)
     {
-        bool Line1 = Physics.Linecast(line1Start.position, line1Stop.position,1<<LayerMask.NameToLayer("Player"));
+        bool Line1 = Physics.Linecast(line1Start.position, line1Stop.position, 1 << LayerMask.NameToLayer("Player"));
         bool Line2 = Physics.Linecast(line2Start.position, line2Stop.position, 1 << LayerMask.NameToLayer("Player"));
         bool Line3 = Physics.Linecast(line3Start.position, line3Stop.position, 1 << LayerMask.NameToLayer("Player"));
         bool Line4 = Physics.Linecast(line4Start.position, line4Stop.position, 1 << LayerMask.NameToLayer("Player"));
@@ -40,9 +40,13 @@ public static class EnemyUtilities
         randomDirection += origin;
 
         NavMeshHit navHit;
+        Vector3 finalPosition = Vector3.zero;
+        if(NavMesh.SamplePosition(randomDirection, out navHit, distance, layermask))
+        {
+            finalPosition = navHit.position;
+        }
 
-        NavMesh.SamplePosition(randomDirection, out navHit, distance, layermask);
-
-        return navHit.position;
+        return finalPosition;
     }
+
 }
