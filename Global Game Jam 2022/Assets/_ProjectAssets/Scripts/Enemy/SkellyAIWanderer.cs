@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using Panda;
+
 
 public class SkellyAIWanderer : MonoBehaviour
 {
@@ -10,7 +10,15 @@ public class SkellyAIWanderer : MonoBehaviour
     NavMeshAgent enemyAgent;
     Animator enemyAnim;
     Rigidbody enemyRGBY;
-    bool walking;
+   
+    
+    enum EnemyStates { Idle,Walk,Run,Attack};
+    [SerializeField] EnemyStates enemyState;
+    bool idle = false;
+    bool walking = false;
+    bool running = false;
+    bool attack = false;
+
     [Header("Misc. Variables")]
     [Tooltip("Enemy Movement Speed, this changes the nav mesh agent speed")]
     [SerializeField] float eMoveSpeed = 1.5f;
@@ -31,50 +39,82 @@ public class SkellyAIWanderer : MonoBehaviour
     {
         enemyAgent.speed = eMoveSpeed;
         player = GameObject.FindGameObjectWithTag("Player");
+        enemyState = EnemyStates.Idle;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        print(CanSeePlayer());
+        StateSwitch();
+        enemyAnim.SetBool("Walk", walking);
+        enemyAnim.SetBool("Run", running);
+        enemyAnim.SetBool("Attack", attack);
+        enemyAnim.SetBool("Idle", idle);
     }
+
+   
+
     private void LateUpdate()
     {
-        enemyAnim.SetBool("Walk", walking);
+       
     }
-    [Task]
-    public void MoveToDestination()
+
+   
+    #region Back-End State Machine Methods
+    void Idle()
     {
-        Vector3 newDestination = EnemyUtilities.RandomNavSphere(this.transform.position, wanderDistance, -1);
-        enemyAgent.SetDestination(newDestination);
+        idle = true;
+        walking = false;
+        running = false;
+        attack = false;
+    }
+    void Walk()
+    {
+        idle = false;
         walking = true;
-        Task.current.Succeed();
+        running = false;
+        attack = false;
     }
-    
-    [Task]
-    public void MadeItToDestination()
+    void Run()
     {
-        if(enemyAgent.remainingDistance < 1.0f )
+        idle = false;
+        walking = false;
+        running = true;
+        attack = false;
+    }
+    void Attack()
+    {
+        idle = false;
+        walking = false;
+        running = false;
+        attack = true;
+    }
+    private void StateSwitch()
+    {
+        switch (enemyState)
         {
-            walking = false;
-            Task.current.Succeed();
+            case EnemyStates.Idle:
+                Idle();
+                break;
+
+            case EnemyStates.Walk:
+                Walk();
+                break;
+
+            case EnemyStates.Run:
+                Run();
+                break;
+
+            case EnemyStates.Attack:
+                Attack();
+                break;
+
+            default:
+                Debug.Log("UNRECOGNIZED STATE in skelly backend state machine");
+                break;
         }
     }
+    #endregion
 
-    [Task]
-    public bool CanSeePlayer()
-    {
-        return EnemyUtilities.CanSeePlayer(line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop,line4Start,line4Stop,line5Start,line5Stop);
-    }
-
-    [Task]
-    public void StopAndLookAround()
-    {
-        enemyAgent.isStopped = true;
-        walking = false;
-        enemyAgent.ResetPath();
-        Task.current.Succeed();
-    }
-    
 }

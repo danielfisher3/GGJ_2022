@@ -6,8 +6,7 @@ tree("FreeRoam")
 	fallback
 		while not CanSeePlayer
 			tree("Wander")
-		while CanSeePlayer
-			tree("LineUpOnPlayer")
+		
 
 
 tree("Wander")
@@ -16,10 +15,7 @@ tree("Wander")
 		MadeItToDestination
 		Wait(2.0)
 
-tree("LineUpOnPlayer")
-	sequence
-		StopAndLookAround
-		Wait(2.0)
+
 
 
 
