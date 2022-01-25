@@ -9465,7 +9465,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 219842785750602321, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 219842785750602321, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9507,21 +9507,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3532765133083875540, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3532765133083875540, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6184915447162702890, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
       propertyPath: m_Name
       value: SwordSkelly
-      objectReference: {fileID: 0}
-    - target: {fileID: 7453642894741437378, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b7a58d5291cd0b945afbd8f4401b4f51, type: 3}
