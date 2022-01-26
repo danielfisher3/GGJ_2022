@@ -9,8 +9,9 @@ public class SkellyAIWanderer : MonoBehaviour
 { 
     NavMeshAgent enemyAgent;
     Animator enemyAnim;
-    
-   
+
+    [SerializeField] enemyHealthUI enemyHealth;
+    [SerializeField] HitDetection hitCheck;
     
     [Header("Misc. Variables")]
     [Tooltip("Enemy Movement Speed, this changes the nav mesh agent speed")]
@@ -24,16 +25,18 @@ public class SkellyAIWanderer : MonoBehaviour
     [SerializeField] Transform playerLookPoint;
     public bool randomMovementreq = false;
     public bool randomAttackreq = false;
-    bool attackMode = false;
 
-    enum RandomMoveSet { Run,Walk,NoMovement,BackToTree};
+    PandaBehaviour pbehaviorTree;
+
+   
     enum RandomAttack { Attack1,Attack2,Cast,Kick,NoAttack};
     
     List<RandomAttack> rAttackSet = new List<RandomAttack>();
 
-    [SerializeField] RandomMoveSet rMove;
+  
     [SerializeField] RandomAttack rAttack;
 
+   
     private void Awake()
     {
       
@@ -46,7 +49,7 @@ public class SkellyAIWanderer : MonoBehaviour
 
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponentInChildren<Animator>();
-        
+        pbehaviorTree = GetComponent<PandaBehaviour>();
         
         
     }
@@ -65,7 +68,7 @@ public class SkellyAIWanderer : MonoBehaviour
     void Update()
     {
         RandomAttackSwitch();
-       
+        
     }
 
    
@@ -149,16 +152,18 @@ public class SkellyAIWanderer : MonoBehaviour
    [Task]
    public void GrabRandomAttack()
    {
-        if (!randomAttackreq)
-        {
-            rAttack = GrabRandomAttackState();
-            randomAttackreq = true;
-            Task.current.Succeed();
-        }
-        else
-        {
-            rAttack = RandomAttack.NoAttack;
-        }
+        
+            if (!randomAttackreq)
+            {
+                rAttack = GrabRandomAttackState();
+                randomAttackreq = true;
+                Task.current.Succeed();
+            }
+            else
+            {
+                rAttack = RandomAttack.NoAttack;
+            }
+        
    }
    
    [Task]
@@ -178,6 +183,49 @@ public class SkellyAIWanderer : MonoBehaviour
         }
         
        
+    }
+    [Task]
+    public bool HasEnemyBeenHit()
+    {
+        return hitCheck.hasbeenhit;
+    }
+    [Task]
+    public bool IsHealthLessThan(int minHealth)
+    {
+        if(enemyHealth.currentHealth < minHealth)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    [Task]
+    public void TakeHit()
+    {
+       
+        enemyAnim.SetTrigger("BeenHit");
+        Task.current.Succeed();
+    }
+    [Task]
+    public void Die()
+    {
+        enemyAnim.SetBool("Death", true);
+        pbehaviorTree.enabled = false;
+        Task.current.Succeed();
+    }
+    [Task]
+    public bool AttackRange(float mindistance)
+    {
+        if(DistanceFromPlayer() <= mindistance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     #endregion
 
@@ -312,6 +360,7 @@ public class SkellyAIWanderer : MonoBehaviour
         RandomAttack attackSelected = rAttackSet[rIndex];
         return attackSelected;
     }
+
 
    
     #endregion

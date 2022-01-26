@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HitDetection : MonoBehaviour
 {
     [SerializeField] enemyHealthUI enemyHealth;
-    bool hasbeenhit = false;
+    public bool hasbeenhit = false;
     Player_Controller pcontrol;
 
 

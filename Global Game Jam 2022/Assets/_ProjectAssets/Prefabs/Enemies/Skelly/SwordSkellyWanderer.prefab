@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1918335046}
   - component: {fileID: 1918335049}
   - component: {fileID: 1918335048}
-  - component: {fileID: 1918335047}
   m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
@@ -83,19 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1918335047
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1918335045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1060280982569511402
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,6 +765,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4974c1bdfb7fe4d45b6ebc1716dbe35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyHealth: {fileID: 8152712491080957199}
+  hitCheck: {fileID: 313599273026789998}
   eMoveSpeed: 1.5
   wanderDistance: 50
   player: {fileID: 0}
@@ -796,7 +784,6 @@ MonoBehaviour:
   playerLookPoint: {fileID: 0}
   randomMovementreq: 0
   randomAttackreq: 0
-  rMove: 0
   rAttack: 0
 --- !u!195 &3498828818065296948
 NavMeshAgent:
@@ -863,6 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: {fileID: 8152712491080957199}
+  hasbeenhit: 0
 --- !u!114 &1574397173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1861,6 +1849,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64140ed8796be214b9595887d3932caa, type: 3}
+--- !u!95 &595715225690913406 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1317543706991024626, guid: 64140ed8796be214b9595887d3932caa, type: 3}
+  m_PrefabInstance: {fileID: 1877082755806356364}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7247177818041566768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9124179622025242044, guid: 64140ed8796be214b9595887d3932caa, type: 3}
@@ -1869,10 +1862,5 @@ Transform:
 --- !u!1 &5965154101257024547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5243527929542662063, guid: 64140ed8796be214b9595887d3932caa, type: 3}
-  m_PrefabInstance: {fileID: 1877082755806356364}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &595715225690913406 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 1317543706991024626, guid: 64140ed8796be214b9595887d3932caa, type: 3}
   m_PrefabInstance: {fileID: 1877082755806356364}
   m_PrefabAsset: {fileID: 0}

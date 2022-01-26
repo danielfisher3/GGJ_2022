@@ -1,5 +1,13 @@
 tree("Root")
-	repeat mute tree("FreeRoam")
+	parallel
+		repeat mute tree("FreeRoam")
+		repeat mute tree("TakeHit")
+		repeat mute tree("Death")
+
+tree("Death")
+	while IsHealthLessThan(1)
+		Die
+		
 
 
 tree("FreeRoam")
@@ -60,11 +68,17 @@ tree("GetInPosition")
 	
 			
 tree("Attack")
-	GrabRandomAttack
+	while AttackRange(2.0)
+		sequence
+			GrabRandomAttack
+			Wait(1.0)
 
 
-
-
+tree("TakeHit")
+	while HasEnemyBeenHit
+		sequence
+			TakeHit
+			Wait(1.0)
 
 		
 
