@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using Panda;
-
+using System;
 
 public class SkellyAIWanderer : MonoBehaviour
 { 
@@ -22,30 +22,54 @@ public class SkellyAIWanderer : MonoBehaviour
     [SerializeField] Transform line1Start, line1Stop, line2Start, line2Stop, line3Start, line3Stop,line4Start,line4Stop, line5Start,line5Stop;
     [SerializeField] float rotSpeed = 1;
     [SerializeField] Transform playerLookPoint;
-    float timeCount;
+    public bool randomMovementreq = false;
+    public bool randomAttackreq = false;
+    bool attackMode = false;
+
+    enum RandomMoveSet { Run,Walk,NoMovement,BackToTree};
+    enum RandomAttack { Attack1,Attack2,Cast,Kick,NoAttack};
+    
+    List<RandomAttack> rAttackSet = new List<RandomAttack>();
+
+    [SerializeField] RandomMoveSet rMove;
+    [SerializeField] RandomAttack rAttack;
+
     private void Awake()
     {
+      
+
+        rAttackSet.Add(RandomAttack.Attack1);
+        rAttackSet.Add(RandomAttack.Attack2);
+        rAttackSet.Add(RandomAttack.Kick);
+        rAttackSet.Add(RandomAttack.Cast);
        
+
         enemyAgent = GetComponent<NavMeshAgent>();
         enemyAnim = GetComponentInChildren<Animator>();
+        
         
         
     }
     void Start()
     {
         enemyAgent.speed = eMoveSpeed;
-      
-       
         
+        rAttack = RandomAttack.NoAttack;
+           
+        
+       
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        timecount = timecount + Time.deltaTime;
+        RandomAttackSwitch();
+       
     }
 
    
+
 
     private void LateUpdate()
     {
@@ -86,19 +110,20 @@ public class SkellyAIWanderer : MonoBehaviour
     [Task]
     public void GoToDestination()
     {
-        if (!enemyAgent.pathPending)
-        {
+        rAttack = RandomAttack.NoAttack;
+
+            enemyAgent.speed = 1.5f;
             enemyAgent.isStopped = false;
             enemyAgent.SetDestination(GrabRandomNavPoint());
             enemyAnim.SetBool("Walk", true);
             Task.current.Succeed();
-        }
+        
     }
 
     [Task]
     public void LineUpOnPlayer()
     {
-
+        rAttack = RandomAttack.NoAttack;
         transform.LookAt(player.transform);
         Task.current.Succeed();
       
@@ -113,71 +138,46 @@ public class SkellyAIWanderer : MonoBehaviour
             Task.current.Succeed();
         }
     }
-    [Task]
-    public void Walk()
-    {
-        enemyAgent.isStopped = false;
-        enemyAgent.SetDestination(player.transform.position);
-        enemyAnim.SetBool("Walk", true);
-        Task.current.Succeed();
-    }
-    [Task]
-    public void Run()
-    {
-        enemyAgent.isStopped = false;
-        enemyAgent.SetDestination(player.transform.position);
-        enemyAnim.SetBool("Run", true);
-        Task.current.Succeed();
-    }
+    
+   
     [Task]
     public bool InPosition()
     {
         return AttackDistanceChecker();
     }
-    [Task]
-    public void Attack1()
+  
+   [Task]
+   public void GrabRandomAttack()
+   {
+        if (!randomAttackreq)
+        {
+            rAttack = GrabRandomAttackState();
+            randomAttackreq = true;
+            Task.current.Succeed();
+        }
+        else
+        {
+            rAttack = RandomAttack.NoAttack;
+        }
+   }
+   
+   [Task]
+   public void MoveTowardsPlayer()
     {
-        enemyAgent.isStopped = true;
-        enemyAnim.SetBool("Walk", false);
-        enemyAnim.SetBool("Run", false);
-        enemyAnim.SetTrigger("Attack1");
-        Task.current.Succeed();
-    }
-    [Task]
-    public void Attack2()
-    {
-        enemyAgent.isStopped = true;
-        enemyAnim.SetBool("Walk", false);
-        enemyAnim.SetBool("Run", false);
-        enemyAnim.SetTrigger("Attack2");
-        Task.current.Succeed();
-    }
-    [Task]
-    public void Kick()
-    {
-        enemyAgent.isStopped = true;
-        enemyAnim.SetBool("Walk", false);
-        enemyAnim.SetBool("Run", false);
-        enemyAnim.SetTrigger("Kick");
-        Task.current.Succeed();
-    }
-    [Task]
-    public void Cast()
-    {
-        enemyAgent.isStopped = true;
-        enemyAnim.SetBool("Walk", false);
-        enemyAnim.SetBool("Run", false);
-        enemyAnim.SetTrigger("Casting");
-        Task.current.Succeed();
-    }
-    [Task]
-    public void Combo()
-    {
-        enemyAgent.isStopped = true;
-        enemyAnim.SetBool("Walk", false);
-        enemyAnim.SetBool("Run", false);
-        enemyAnim.SetTrigger("Combo");
-        Task.current.Succeed();
+        if(AttackDistanceChecker() == false)
+        {
+            
+            enemyAgent.isStopped = false;
+           
+            NavMeshHit hit;
+            NavMesh.SamplePosition(player.transform.position, out hit, 10, -1);
+            enemyAgent.speed = eMoveSpeed + 2;
+            enemyAnim.SetBool("Run", true);
+            randomAttackreq = false;
+            enemyAgent.SetDestination(hit.position);
+        }
+        
+       
     }
     #endregion
 
@@ -195,7 +195,7 @@ public class SkellyAIWanderer : MonoBehaviour
     }
     bool AttackDistanceChecker()
     {
-        if(DistanceFromPlayer() > 1)
+        if(DistanceFromPlayer() > 2)
         {
             return false;
         }
@@ -213,6 +213,107 @@ public class SkellyAIWanderer : MonoBehaviour
         return distance;
    }
 
+    public void Attack1()
+    {
+       
+        enemyAgent.isStopped = true;
+        enemyAnim.SetBool("Walk", false);
+        enemyAnim.SetBool("Run", false);
+        enemyAnim.SetBool("Attack2", false);
+        enemyAnim.SetBool("Kick", false);
+        enemyAnim.SetBool("Cast", false);
+        enemyAnim.SetBool("Attack1",true);
+        
+    }
+
+
+    public void Attack2()
+    {
+       
+        enemyAgent.isStopped = true;
+        enemyAnim.SetBool("Walk", false);
+        enemyAnim.SetBool("Run", false);
+        enemyAnim.SetBool("Attack1", false);
+        enemyAnim.SetBool("Kick", false);
+        enemyAnim.SetBool("Cast", false);
+        enemyAnim.SetBool("Attack2",true);
+       
+    }
+
+    public void Kick()
+    {
+      
+        enemyAgent.isStopped = true;
+        enemyAnim.SetBool("Walk", false);
+        enemyAnim.SetBool("Run", false);
+        enemyAnim.SetBool("Attack2", false);
+        enemyAnim.SetBool("Attack1", false);
+        enemyAnim.SetBool("Cast", false);
+        enemyAnim.SetBool("Kick",true);
+       
+    }
+
+    public void Cast()
+    {
+        enemyAgent.isStopped = true;
+        enemyAnim.SetBool("Walk", false);
+        enemyAnim.SetBool("Run", false);
+        enemyAnim.SetBool("Attack2", false);
+        enemyAnim.SetBool("Kick", false);
+        enemyAnim.SetBool("Attack1", false);
+        enemyAnim.SetBool("Cast",true);
+        
+    }
+
+  
+   
+
+   
+
+    private void RandomAttackSwitch()
+    {
+        switch (rAttack)
+        {
+            case RandomAttack.Attack1:
+                Attack1();
+                break;
+
+            case RandomAttack.Attack2:
+                Attack2();
+                break;
+
+            case RandomAttack.Cast:
+                Cast();
+                break;
+
+            case RandomAttack.Kick:
+                Kick();
+                break;
+
+            case RandomAttack.NoAttack:
+                NoAttack();
+                break;
+
+            
+        }
+    }
+
+    void NoAttack()
+    {
+        enemyAnim.SetBool("Attack2", false);
+        enemyAnim.SetBool("Kick", false);
+        enemyAnim.SetBool("Attack1", false);
+        enemyAnim.SetBool("Cast", false);
+        randomAttackreq = false;
+    }
+    RandomAttack GrabRandomAttackState()
+    {
+        int rIndex = UnityEngine.Random.Range(0, rAttackSet.Count);
+        RandomAttack attackSelected = rAttackSet[rIndex];
+        return attackSelected;
+    }
+
+   
     #endregion
 
 }

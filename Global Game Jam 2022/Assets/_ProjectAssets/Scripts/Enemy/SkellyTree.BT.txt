@@ -36,7 +36,7 @@ tree("LookForPlayer")
 tree("PrepareForAttack")
 	fallback
 		while not InPosition
-			tree("RandomMovement")
+			tree("GetInPosition")
 		while InPosition
 			tree("Attack")
 			
@@ -45,21 +45,22 @@ tree("PrepareForAttack")
 tree("TargetPlayer")
 	sequence
 		LineUpOnPlayer
+		Wait(2.0)
 		tree("RandomMovementTowardsPlayer")
 
 tree("RandomMovementTowardsPlayer")
 	fallback
 		while not InPosition
-			tree("RandomMovement")
+			tree("GetInPosition")
 		while InPosition
 			tree("PrepareForAttack")
 
-tree("RandomMovement")
-	Succeed
+tree("GetInPosition")
+	MoveTowardsPlayer
 	
 			
 tree("Attack")
-	Succeed
+	GrabRandomAttack
 
 
 
