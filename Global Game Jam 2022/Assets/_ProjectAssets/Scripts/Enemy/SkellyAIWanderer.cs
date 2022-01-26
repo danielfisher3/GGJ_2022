@@ -110,11 +110,11 @@ public class SkellyAIWanderer : MonoBehaviour
     [Task]
     public void GoToDestination()
     {
-        rAttack = RandomAttack.NoAttack;
-
+            rAttack = RandomAttack.NoAttack;
             enemyAgent.speed = 1.5f;
             enemyAgent.isStopped = false;
             enemyAgent.SetDestination(GrabRandomNavPoint());
+            enemyAnim.SetBool("Run", false);
             enemyAnim.SetBool("Walk", true);
             Task.current.Succeed();
         

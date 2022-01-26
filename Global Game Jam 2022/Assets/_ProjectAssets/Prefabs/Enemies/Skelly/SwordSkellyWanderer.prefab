@@ -704,6 +704,20 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &570870062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5965154101257024547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886317c6b9b70c547967c203acdf2e4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skellyAI: {fileID: 4523541653433939869}
+  skellyAnim: {fileID: 595715225690913406}
 --- !u!1 &6184915447162702890
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +734,7 @@ GameObject:
   - component: {fileID: 313599273026789998}
   - component: {fileID: 1574397173}
   m_Layer: 8
-  m_Name: SwordSkelly
+  m_Name: SwordSkellyWanderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -765,9 +779,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4974c1bdfb7fe4d45b6ebc1716dbe35c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyState: 0
   eMoveSpeed: 1.5
-  wanderDistance: 25
+  wanderDistance: 50
+  player: {fileID: 0}
   line1Start: {fileID: 8739900098853019312}
   line1Stop: {fileID: 3769135608306360645}
   line2Start: {fileID: 6071725592638798606}
@@ -778,6 +792,12 @@ MonoBehaviour:
   line4Stop: {fileID: 7339126338960759578}
   line5Start: {fileID: 3438789078106109168}
   line5Stop: {fileID: 7588752923287049219}
+  rotSpeed: 1
+  playerLookPoint: {fileID: 0}
+  randomMovementreq: 0
+  randomAttackreq: 0
+  rMove: 0
+  rAttack: 0
 --- !u!195 &3498828818065296948
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1844,5 +1864,15 @@ PrefabInstance:
 --- !u!4 &7247177818041566768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9124179622025242044, guid: 64140ed8796be214b9595887d3932caa, type: 3}
+  m_PrefabInstance: {fileID: 1877082755806356364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5965154101257024547 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5243527929542662063, guid: 64140ed8796be214b9595887d3932caa, type: 3}
+  m_PrefabInstance: {fileID: 1877082755806356364}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &595715225690913406 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1317543706991024626, guid: 64140ed8796be214b9595887d3932caa, type: 3}
   m_PrefabInstance: {fileID: 1877082755806356364}
   m_PrefabAsset: {fileID: 0}
