@@ -209,6 +209,8 @@ public class SpiderAIWanderer : MonoBehaviour
     [Task]
     public void Die()
     {
+        enemyAnim.SetBool("Attack1", false);
+        enemyAnim.SetBool("Attack2", false);
         enemyAnim.SetBool("Death", true);
         pbehaviorTree.enabled = false;
         Task.current.Succeed();

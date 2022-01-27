@@ -211,6 +211,11 @@ public class SkellyAIWanderer : MonoBehaviour
     [Task]
     public void Die()
     {
+        enemyAnim.SetBool("Attack2", false);
+        enemyAnim.SetBool("Kick", false);
+        enemyAnim.SetBool("Attack1", false);
+        enemyAnim.SetBool("Cast", false);
+        randomAttackreq = false;
         enemyAnim.SetBool("Death", true);
         pbehaviorTree.enabled = false;
         Task.current.Succeed();
