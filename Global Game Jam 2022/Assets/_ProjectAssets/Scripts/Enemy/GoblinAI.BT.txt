@@ -1,0 +1,84 @@
+tree("Root")
+	parallel
+		repeat mute tree("FreeRoam")
+		repeat mute tree("TakeHit")
+		repeat mute tree("Death")
+
+tree("Death")
+	while IsHealthLessThan(1)
+		Die
+		
+
+
+tree("FreeRoam")
+	fallback
+		while PlayerFarEnoughAwayToPatrol(10.0)
+			tree("Wander")
+		while not PlayerFarEnoughAwayToPatrol(10.0)
+			tree("AssessSituation")
+
+
+tree("Wander")
+	sequence
+		GoToDestination
+		DetermineIfAtWaypoint
+		Wait(2.0)
+		
+		
+tree("AssessSituation")
+	fallback
+		while not CheckIfPlayerIsOnEnemy
+			tree("LookForPlayer")
+		while CheckIfPlayerIsOnEnemy
+			tree("PrepareForAttack")
+
+
+
+tree("LookForPlayer")
+	fallback
+		while not CheckIfPlayerIsOnEnemy
+			tree("TargetPlayer")
+		while CheckIfPlayerIsOnEnemy
+			tree("PrepareForAttack")
+
+tree("PrepareForAttack")
+	fallback
+		while not InPosition
+			tree("GetInPosition")
+		while InPosition
+			tree("Attack")
+			
+			
+
+tree("TargetPlayer")
+	sequence
+		LineUpOnPlayer
+		Wait(2.0)
+		tree("RandomMovementTowardsPlayer")
+
+tree("RandomMovementTowardsPlayer")
+	fallback
+		while not InPosition
+			tree("GetInPosition")
+		while InPosition
+			tree("PrepareForAttack")
+
+tree("GetInPosition")
+	MoveTowardsPlayer
+	
+			
+tree("Attack")
+	while AttackRange(2.0)
+		sequence
+			GrabRandomAttack
+			Wait(1.0)
+
+
+tree("TakeHit")
+	while HasEnemyBeenHit
+		sequence
+			TakeHit
+			Wait(1.0)
+
+		
+
