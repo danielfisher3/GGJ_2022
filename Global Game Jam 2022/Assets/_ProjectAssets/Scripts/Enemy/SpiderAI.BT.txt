@@ -79,6 +79,3 @@ tree("TakeHit")
 		sequence
 			TakeHit
 			Wait(1.0)
-
-		
-
