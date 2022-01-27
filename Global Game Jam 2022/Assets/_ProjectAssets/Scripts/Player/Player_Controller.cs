@@ -18,7 +18,10 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] GameObject pCamera;
     [SerializeField] PlayerHealthStaminaUI playerGUIController;
     public Collider sword1;
-   
+    [SerializeField] GameObject divineSword;
+    [SerializeField] GameObject divineAura;
+    [SerializeField] GameObject evilSword;
+    [SerializeField] GameObject evilAura;
     
     bool walk;
     float clampedX;
@@ -121,13 +124,28 @@ public class Player_Controller : MonoBehaviour
     {
         if(Input.GetButtonUp(("DemonSwap")) && !demonForm)
         {
-            print("DEMON FORM");
+           
             demonForm = true;
+            if (!evilSword.activeInHierarchy && !evilAura.activeInHierarchy)
+            {
+                evilAura.SetActive(true);
+                evilSword.SetActive(true);
+                divineSword.SetActive(false);
+                divineAura.SetActive(false);
+
+            }
         }
         else if(Input.GetButtonUp(("DemonSwap")) && demonForm)
         {
-            print("SAINT FORM");
+            
             demonForm = false;
+            if(!divineAura.activeInHierarchy && !divineSword.activeInHierarchy)
+            {
+                divineSword.SetActive(true);
+                divineAura.SetActive(true);
+                evilAura.SetActive(false);
+                evilSword.SetActive(false);
+            }
         }
     }
     void LightAttack()
