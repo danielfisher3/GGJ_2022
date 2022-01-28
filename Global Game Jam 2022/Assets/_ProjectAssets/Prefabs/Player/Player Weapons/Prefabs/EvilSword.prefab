@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7347389004148567604}
   - component: {fileID: 7347389004148567606}
   - component: {fileID: 7347389004148567605}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Sparks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4817,7 +4817,7 @@ GameObject:
   - component: {fileID: 7347389005125877726}
   - component: {fileID: 7347389005125877712}
   - component: {fileID: 7347389005125877727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Rings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9625,7 +9625,7 @@ GameObject:
   - component: {fileID: 7347389005906707654}
   - component: {fileID: 7347389005906707672}
   - component: {fileID: 7347389005906707655}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14429,9 +14429,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 423742861065370696}
-  m_Layer: 0
+  - component: {fileID: 4405867321018469521}
+  - component: {fileID: 885349749142839286}
+  m_Layer: 6
   m_Name: EvilSword
-  m_TagString: Untagged
+  m_TagString: PlayerSword
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14451,6 +14453,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &4405867321018469521
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931785358865412239}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.093797155
+  m_Height: 1.7852902
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 1.1631548}
+--- !u!54 &885349749142839286
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7931785358865412239}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 80
+  m_CollisionDetection: 0
 --- !u!1001 &7347389005683677107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14461,6 +14493,10 @@ PrefabInstance:
     - target: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_Name
       value: MagicSword_Iron
+      objectReference: {fileID: 0}
+    - target: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1014989259798498, guid: 8fc40ebf5a41b30428929f5ba3697759, type: 3}
       propertyPath: m_IsActive

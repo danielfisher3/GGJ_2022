@@ -22,12 +22,16 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] GameObject divineAura;
     [SerializeField] GameObject evilSword;
     [SerializeField] GameObject evilAura;
-    
+    [SerializeField] GameObject forceFieldD;
+    [SerializeField] GameObject forceFieldE;
     bool walk;
     float clampedX;
     float inputHorizontal;
     float rotY;
-
+    bool forceActive = false;
+    public bool forceDeployed = false;
+    float Timer;
+    [SerializeField] float timeToOffFF = 2.0f;
     #endregion
 
     #region Unity Native
@@ -58,10 +62,47 @@ public class Player_Controller : MonoBehaviour
         OpenCloseInventory();
         DivineDemonSwap();
         Sneer();
-        
+        ForcefieldDeployment();
+        if(forceDeployed && forceActive)
+        {
+            Timer += Time.deltaTime;
+            if (Timer >= timeToOffFF)
+            {
+                if (forceFieldD.activeInHierarchy)
+                {
+                    forceFieldD.SetActive(false);
+                    forceActive = false;
+                }
+                if (forceFieldE.activeInHierarchy)
+                {
+                    forceFieldE.SetActive(false);
+                }
+                forceDeployed = false;
+            }
+        }
     }
 
-    
+    private void ForcefieldDeployment()
+    {
+        if (Input.GetKeyUp(KeyCode.Q) && !demonForm && !forceActive && !forceDeployed)
+        {
+            if (!forceFieldD.activeInHierarchy)
+            {
+                forceFieldD.SetActive(true);
+                forceActive = true;
+            }
+
+        }
+        else if (Input.GetKeyUp(KeyCode.Q) && demonForm && !forceActive && !forceDeployed)
+        {
+            if (!forceFieldE.activeInHierarchy)
+            {
+                forceFieldE.SetActive(true);
+                forceActive = true;
+            }
+        }
+    }
+
 
     void LateUpdate()
     {

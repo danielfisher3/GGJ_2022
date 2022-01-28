@@ -4,6 +4,7 @@ A- Demon Form/Divine Form
 R- Run
 I- Inventory
 M- Map
+Q-Forcefield
 
 Mouse movement - Rotate/Look
 Left mouse click - light Attack

@@ -10821,10 +10821,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 716404761, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 137
-      objectReference: {fileID: 0}
     - target: {fileID: 545478949345791472, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
       propertyPath: m_Name
       value: Player
@@ -22186,7 +22182,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5380588044865072182, guid: 7f3ec3742b77db14bb676f2e21b6e74b, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380588045366973020, guid: 7f3ec3742b77db14bb676f2e21b6e74b, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5380588045733663729, guid: 7f3ec3742b77db14bb676f2e21b6e74b, type: 3}
       propertyPath: player
@@ -22243,6 +22243,10 @@ PrefabInstance:
     - target: {fileID: 5380588045733663742, guid: 7f3ec3742b77db14bb676f2e21b6e74b, type: 3}
       propertyPath: m_Name
       value: Goblin
+      objectReference: {fileID: 0}
+    - target: {fileID: 5380588045733663742, guid: 7f3ec3742b77db14bb676f2e21b6e74b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f3ec3742b77db14bb676f2e21b6e74b, type: 3}
@@ -23080,6 +23084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bee
       objectReference: {fileID: 0}
+    - target: {fileID: 7935269088749162009, guid: 04033b59840286f4489ebb8e570dee84, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7935269088749162013, guid: 04033b59840286f4489ebb8e570dee84, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -23126,7 +23134,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7935269090281265736, guid: 04033b59840286f4489ebb8e570dee84, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7935269090326370820, guid: 04033b59840286f4489ebb8e570dee84, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04033b59840286f4489ebb8e570dee84, type: 3}
