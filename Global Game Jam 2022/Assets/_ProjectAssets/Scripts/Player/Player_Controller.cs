@@ -76,6 +76,7 @@ public class Player_Controller : MonoBehaviour
                 if (forceFieldE.activeInHierarchy)
                 {
                     forceFieldE.SetActive(false);
+                    forceActive = false;
                 }
                 forceDeployed = false;
             }
