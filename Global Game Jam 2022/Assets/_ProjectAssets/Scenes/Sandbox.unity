@@ -193,6 +193,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 137783631, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
   m_PrefabInstance: {fileID: 387438310}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &898291929 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 898291929, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
+  m_PrefabInstance: {fileID: 387438310}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &968693288 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1459815844, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
@@ -436,6 +447,11 @@ PrefabInstance:
 --- !u!1 &1407255718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 545478949345791472, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
+  m_PrefabInstance: {fileID: 1056729167}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1407255719 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 545478949345791475, guid: af8b541c21bacc949a5a7a18cef024c0, type: 3}
   m_PrefabInstance: {fileID: 1056729167}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1424412387 stripped
@@ -728,6 +744,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1020381638864562546, guid: b8b8828692368004993c48465f4c922e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1407255719}
+    - target: {fileID: 1020381638864562546, guid: b8b8828692368004993c48465f4c922e, type: 3}
+      propertyPath: bossHealthSlider
+      value: 
+      objectReference: {fileID: 898291929}
     - target: {fileID: 7285533655154920565, guid: b8b8828692368004993c48465f4c922e, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -775,10 +799,6 @@ PrefabInstance:
     - target: {fileID: 8177892077881052473, guid: b8b8828692368004993c48465f4c922e, type: 3}
       propertyPath: m_Name
       value: JuggernautDemon
-      objectReference: {fileID: 0}
-    - target: {fileID: 8177892077881052473, guid: b8b8828692368004993c48465f4c922e, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b8828692368004993c48465f4c922e, type: 3}
