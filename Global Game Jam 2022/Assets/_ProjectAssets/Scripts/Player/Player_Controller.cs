@@ -32,6 +32,8 @@ public class Player_Controller : MonoBehaviour
     public bool forceDeployed = false;
     float Timer;
     [SerializeField] float timeToOffFF = 2.0f;
+    float timesincelastattack;
+    float attackCooldown = 1.0f;
     #endregion
 
     #region Unity Native
