@@ -13,7 +13,7 @@ tree("Phase1")
 
 tree("Flee")
 	while IsHealthLessThan(600)
-		while InDanger(3.0)
+		while not IsHealthLessThan(500)
 			sequence
 				TakeCover
 				MoveToDestination
@@ -30,14 +30,30 @@ tree("Phase2")
 			tree("Phase2Stalk")
 			
 tree("Phase2Stalk")
-	while not SeePlayer
+	while SeePlayer
 		sequence
 			TargetPlayer
 			LookAtTarget
-			SetTargetDestination
-			MoveToDestination
+			fallback
+				while AttackLinedUp
+					sequence
+						Wait(0.5)
+						tree("RandomPhase2Attack")	
+				while not AttackLinedUp
+					sequence
+						SetTargetDestination
+						MoveToDestination
 			
-
+			
+tree("RandomPhase2Attack")
+	while SeePlayer
+		sequence
+			random
+				Attack4
+				Attack5
+				Attack6
+			Wait(2.0)
+	
 tree("LookAround")
 	while not IsHealthLessThan(500)
 		while not SeePlayer
@@ -75,6 +91,7 @@ tree("RandomPhase1Attack")
 			random
 				Attack1
 				Attack2
+				Attack3
 			Wait(2.0)
 
 tree("Wander")

@@ -12,6 +12,10 @@ public class BossAimEvents : MonoBehaviour
         {
             jAI.bossAnim.SetBool("Attack1", false);
             jAI.bossAnim.SetBool("Attack2", false);
+            jAI.bossAnim.SetBool("Attack3", false);
+            jAI.bossAnim.SetBool("Attack4", false);
+            jAI.bossAnim.SetBool("Attack5", false);
+            jAI.bossAnim.SetBool("Attack6", false);
         }
     }
 }

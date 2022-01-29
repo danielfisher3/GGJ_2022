@@ -50,10 +50,12 @@ public class JuggerNautAI : MonoBehaviour
         if (phase2)
         {
             bossAgent.speed = 3.5f;
+            visibleRange = 20;
         }
         else
         {
             bossAgent.speed = 2.0f;
+            visibleRange = 10;
         }
     }
 
@@ -243,6 +245,10 @@ public class JuggerNautAI : MonoBehaviour
         bossAnim.SetBool("Run", false);
         bossAnim.SetBool("Attack2", false);
         bossAnim.SetBool("Attack1", true);
+        bossAnim.SetBool("Attack3", false);
+        bossAnim.SetBool("Attack4", false);
+        bossAnim.SetBool("Attack5", false);
+        bossAnim.SetBool("Attack6", false);
         Task.current.Succeed();
     }
     [Task]
@@ -252,10 +258,65 @@ public class JuggerNautAI : MonoBehaviour
         bossAnim.SetBool("Run", false);
         bossAnim.SetBool("Attack1", false);
         bossAnim.SetBool("Attack2", true);
+        bossAnim.SetBool("Attack3", false);
+        bossAnim.SetBool("Attack4", false);
+        bossAnim.SetBool("Attack5", false);
+        bossAnim.SetBool("Attack6", false);
         Task.current.Succeed();
 
     }
-
+    [Task]
+    public void Attack3()
+    {
+        bossAnim.SetBool("Walk", false);
+        bossAnim.SetBool("Run", false);
+        bossAnim.SetBool("Attack2", false);
+        bossAnim.SetBool("Attack1", false);
+        bossAnim.SetBool("Attack3", true);
+        bossAnim.SetBool("Attack4", false);
+        bossAnim.SetBool("Attack5", false);
+        bossAnim.SetBool("Attack6", false);
+        Task.current.Succeed();
+    }
+    [Task]
+    public void Attack4()
+    {
+        bossAnim.SetBool("Walk", false);
+        bossAnim.SetBool("Run", false);
+        bossAnim.SetBool("Attack2", false);
+        bossAnim.SetBool("Attack1", false);
+        bossAnim.SetBool("Attack3", false);
+        bossAnim.SetBool("Attack4", true);
+        bossAnim.SetBool("Attack5", false);
+        bossAnim.SetBool("Attack6", false);
+        Task.current.Succeed();
+    }
+    [Task]
+    public void Attack5()
+    {
+        bossAnim.SetBool("Walk", false);
+        bossAnim.SetBool("Run", false);
+        bossAnim.SetBool("Attack2", false);
+        bossAnim.SetBool("Attack1", false);
+        bossAnim.SetBool("Attack3", false);
+        bossAnim.SetBool("Attack4", false);
+        bossAnim.SetBool("Attack5", true);
+        bossAnim.SetBool("Attack6", false);
+        Task.current.Succeed();
+    }
+    [Task]
+    public void Attack6()
+    {
+        bossAnim.SetBool("Walk", false);
+        bossAnim.SetBool("Run", false);
+        bossAnim.SetBool("Attack2", false);
+        bossAnim.SetBool("Attack1", false);
+        bossAnim.SetBool("Attack3", false);
+        bossAnim.SetBool("Attack4", false);
+        bossAnim.SetBool("Attack5", false);
+        bossAnim.SetBool("Attack6", true);
+        Task.current.Succeed();
+    }
     [Task]
     public void SetTargetDestination()
     {
@@ -272,7 +333,13 @@ public class JuggerNautAI : MonoBehaviour
         Task.current.Succeed();
     }
 
-   
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "PlayerSword")
+        {
+            print(other.gameObject.name);
+        }
+    }
 
 }
 
