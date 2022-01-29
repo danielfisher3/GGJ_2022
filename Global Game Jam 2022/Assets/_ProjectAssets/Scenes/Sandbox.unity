@@ -803,10 +803,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OgreKing
       objectReference: {fileID: 0}
-    - target: {fileID: 610899003217298460, guid: bb3629951890ba64fa28fbc17ea4575b, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 610899003217298462, guid: bb3629951890ba64fa28fbc17ea4575b, type: 3}
       propertyPath: player
       value: 
@@ -1113,3 +1109,76 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04033b59840286f4489ebb8e570dee84, type: 3}
+--- !u!1001 &8880279659978023162
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925400, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925412, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1407255719}
+    - target: {fileID: 8880279660081925412, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: bossSliderText
+      value: 
+      objectReference: {fileID: 1238215008}
+    - target: {fileID: 8880279660081925412, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: bossHealthSlider
+      value: 
+      objectReference: {fileID: 898291929}
+    - target: {fileID: 8880279660081925414, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_Name
+      value: Altar_Mutant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8880279660081925414, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 0f701c115d3a6fb47981ad4a52f30361, type: 3}

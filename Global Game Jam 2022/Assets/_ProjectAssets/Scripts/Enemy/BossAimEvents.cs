@@ -7,6 +7,7 @@ public class BossAimEvents : MonoBehaviour
     [SerializeField]JuggerNautAI jAI = null;
     [SerializeField] AngelAI aAI = null;
     [SerializeField] OgreAI oAI = null;
+    [SerializeField] MutantAI mAI = null;
 
     [SerializeField] Collider attackCollider1 = null,attackCollider2 = null;
     
@@ -43,6 +44,15 @@ public class BossAimEvents : MonoBehaviour
             oAI.bossAnim.SetBool("Attack1", false);
             oAI.bossAnim.SetBool("Attack2", false);
             oAI.bossAnim.SetBool("Attack3", false);
+
+            attackCollider1.enabled = false;
+            attackCollider2.enabled = false;
+        }
+        if(mAI != null)
+        {
+            mAI.bossAnim.SetBool("Attack1", false);
+            mAI.bossAnim.SetBool("Attack2", false);
+            mAI.bossAnim.SetBool("Attack3", false);
 
             attackCollider1.enabled = false;
             attackCollider2.enabled = false;
