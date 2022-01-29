@@ -1,0 +1,120 @@
+tree("Root")
+	parallel
+		repeat mute tree("Phase1")
+		repeat mute tree("PlayerAttacking")
+		repeat mute tree("Death")
+
+
+tree("PlayerAttacking")
+	fallback
+		tree("Tickled")
+		while HasBeenHit
+			while not HaveBeenTickled
+				ReactToHit
+
+tree("Tickled")
+	while not HasBeenHit
+		while HaveBeenTickled
+			ReactToTickle
+
+tree("Death")
+	while IsHealthLessThan(1)
+		Die
+
+tree("Phase1")
+	fallback
+		tree("Flee")
+		tree("ReturnToAttack")
+		while not IsHealthLessThan(500)
+			while not InPhaseTwo
+				fallback
+					tree("Wander")
+					tree("StalkPlayer")
+
+tree("Flee")
+	while IsHealthLessThan(600)
+		while not IsHealthLessThan(500)
+			sequence
+				TakeCover
+				MoveToDestination
+
+tree("ReturnToAttack")
+	while IsHealthLessThan(500)
+		while InPhaseTwo
+			tree("Phase2")
+
+
+tree("Phase2")
+	while InPhaseTwo
+		fallback
+			tree("Phase2Stalk")
+			
+tree("Phase2Stalk")
+	while SeePlayer
+		sequence
+			TargetPlayer
+			LookAtTarget
+			fallback
+				while AttackLinedUp
+					sequence
+						Wait(0.5)
+						tree("RandomPhase2Attack")	
+				while not AttackLinedUp
+					sequence
+						SetTargetDestination
+						MoveToDestination
+			
+			
+tree("RandomPhase2Attack")
+	while SeePlayer
+		sequence
+			random
+				Attack2
+				Attack3
+			Wait(2.0)
+	
+tree("LookAround")
+	while not IsHealthLessThan(500)
+		while not SeePlayer
+			sequence
+				random
+					Turn(90.0)
+					Turn(-90.0)
+					Turn(135.0)
+					Turn(-135.0)
+				LookAtTarget
+				WaitRandom(2.0,5.0)
+				random
+					Fail
+					Succeed
+
+tree("StalkPlayer")
+	while SeePlayer
+		sequence
+			TargetPlayer
+			LookAtTarget
+			fallback
+				while AttackLinedUp
+					sequence
+						Wait(0.5)
+						tree("RandomPhase1Attack")	
+				while not AttackLinedUp
+					sequence
+						SetTargetDestination
+						MoveToDestination
+
+
+tree("RandomPhase1Attack")
+	while SeePlayer
+		sequence
+			random
+				Attack1
+				Attack2
+			Wait(2.0)
+
+tree("Wander")
+	while not SeePlayer
+		sequence
+			tree("LookAround")
+			PickRandomDestination
+			MoveToDestination
