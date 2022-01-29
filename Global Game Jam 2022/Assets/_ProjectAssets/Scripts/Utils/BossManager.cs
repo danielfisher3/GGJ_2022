@@ -26,6 +26,8 @@ public class BossManager : MonoBehaviour
 
     [SerializeField] JuggerNautAI jAI;
     [SerializeField] AngelAI aAI;
+    [SerializeField] OgreAI oAI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,12 +54,19 @@ public class BossManager : MonoBehaviour
                 aWallAnimator.SetBool("AWallDown", true);
             }
         }
+        if (ogreActivated)
+        {
+            if(oAI.dead == true)
+            {
+                aWallAnimator.SetBool("OWallDown", true);
+            }
+        }
 
     }
 
     private void ActivationBosses()
     {
-        if (juggernautActivated && !jAI.dead)
+        if (juggernautActivated)
         {
             jActivator.SetActive(false);
             jArenaWall.SetActive(true);
@@ -88,6 +97,7 @@ public class BossManager : MonoBehaviour
             oActivator.SetActive(false);
             oArenaWall.SetActive(true);
             ogrePrefab.SetActive(true);
+            aWallAnimator = oArenaWall.GetComponent<Animator>();
 
         }
     }

@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &610899003217298434
 Transform:
   m_ObjectHideFlags: 0
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 610899003217298460}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 606623161686871245}
   m_Father: {fileID: 0}
@@ -106,13 +106,13 @@ MonoBehaviour:
   currenthealth: 0
   destination: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
-  visibleRange: 5
-  attackRange: 2
+  visibleRange: 25
+  attackRange: 3
   rotSpeed: 1
-  minXrange: -5
-  maxXRange: 5
-  minZRange: -5
-  maxZRange: 5
+  minXrange: -15
+  maxXRange: 15
+  minZRange: -15
+  maxZRange: 15
   x: 0
   z: 0
   bossAnim: {fileID: 661558912030053943}
