@@ -18,7 +18,8 @@ tree("Tickled")
 			ReactToTickle
 
 tree("Death")
-	Succeed
+	while IsHealthLessThan(1)
+		Die
 
 tree("Phase1")
 	fallback

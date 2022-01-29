@@ -18,7 +18,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] GameObject oActivator;
     [SerializeField] GameObject aActivator;
     [SerializeField] GameObject mActivator;
-
+    Animator aWallAnimator =  null;
     [SerializeField] GameObject jArenaWall;
     [SerializeField] GameObject oArenaWall = null;
     [SerializeField] GameObject aArenaWall = null;
@@ -29,23 +29,32 @@ public class BossManager : MonoBehaviour
     void Start()
     {
         
+        aWallAnimator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
         ActivationBosses();
+        if (juggernautActivated)
+        {
+            if (jAI.dead == true)
+            {
+                aWallAnimator.SetBool("JWallDown", true);
+            }
+        }
 
     }
 
     private void ActivationBosses()
     {
-        if (juggernautActivated)
+        if (juggernautActivated && !jAI.dead)
         {
             jActivator.SetActive(false);
             jArenaWall.SetActive(true);
             juggerPrefab.SetActive(true);
-
+            aWallAnimator = jArenaWall.GetComponent<Animator>();
         }
 
         if (mutantActivated)

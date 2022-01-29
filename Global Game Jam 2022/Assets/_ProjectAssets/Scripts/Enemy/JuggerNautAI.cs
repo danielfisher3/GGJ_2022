@@ -25,6 +25,7 @@ public class JuggerNautAI : MonoBehaviour
     bool phase2;
     NavMeshAgent bossAgent;
     public bool dead = false;
+    [SerializeField]Text bossSliderText;
     private void Awake()
     {
         bossAnim = GetComponentInChildren<Animator>();
@@ -35,6 +36,7 @@ public class JuggerNautAI : MonoBehaviour
     {
         bossAgent = GetComponent<NavMeshAgent>();
         bossHealthSlider.gameObject.SetActive(true);
+        bossSliderText.text = "Rahkeim the Juggernaut";
         phase2 = false;
         bossHealthSlider.maxValue = maxHealth;
         currenthealth = maxHealth;

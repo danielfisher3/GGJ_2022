@@ -119,7 +119,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7285533655154920565
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +216,7 @@ MonoBehaviour:
   z: 0
   bossAnim: {fileID: 2312643602592487564}
   dead: 0
+  bossSliderText: {fileID: 0}
 --- !u!114 &5283603292602640070
 MonoBehaviour:
   m_ObjectHideFlags: 0
