@@ -43,7 +43,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 8879762988668982889}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.28201336
   m_Height: 1.6801388
   m_Direction: 1
@@ -86,7 +86,7 @@ SphereCollider:
   m_GameObject: {fileID: 8879822418027631015}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: -0.12, y: 0.15, z: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8880279660081925400
 Transform:
   m_ObjectHideFlags: 0
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 8880279660081925414}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8875821229958645175}
   m_Father: {fileID: 0}
@@ -209,13 +209,13 @@ MonoBehaviour:
   currenthealth: 0
   destination: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
-  visibleRange: 5
-  attackRange: 2
+  visibleRange: 25
+  attackRange: 3
   rotSpeed: 1
-  minXrange: -5
-  maxXRange: 5
-  minZRange: -5
-  maxZRange: 5
+  minXrange: -25
+  maxXRange: 25
+  minZRange: -25
+  maxZRange: 25
   x: 0
   z: 0
   bossAnim: {fileID: 8821688878240826389}
