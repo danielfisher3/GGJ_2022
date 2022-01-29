@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jAI: {fileID: 1020381638864562546}
+  attackCollider1: {fileID: 3114353857812301241}
+  attackCollider2: {fileID: 4863281879077024769}
 --- !u!54 &4912159332346615922
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -38,10 +40,23 @@ SphereCollider:
   m_GameObject: {fileID: 2399544122280657452}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: -0.19, y: 0, z: 0}
+--- !u!114 &1461750094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2399544122280657452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffed822e179cdfd45a9805036cf44704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evil: 1
 --- !u!54 &1679823744562853618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -67,10 +82,23 @@ SphereCollider:
   m_GameObject: {fileID: 2400339093148605650}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 0.25
   m_Center: {x: -0.21, y: 0, z: 0}
+--- !u!114 &1389690985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2400339093148605650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffed822e179cdfd45a9805036cf44704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evil: 1
 --- !u!1 &8177892077881052473
 GameObject:
   m_ObjectHideFlags: 0
@@ -85,7 +113,7 @@ GameObject:
   - component: {fileID: 3025276119080612620}
   - component: {fileID: 1020381638864562546}
   - component: {fileID: 5283603292602640070}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: JuggernautDemon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,6 +215,7 @@ MonoBehaviour:
   x: 0
   z: 0
   bossAnim: {fileID: 2312643602592487564}
+  dead: 0
 --- !u!114 &5283603292602640070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,6 +245,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7285533655154920565}
     m_Modifications:
+    - target: {fileID: 1582038262163254, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 1714716464291438, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
       propertyPath: m_Name
       value: Juggernaut
@@ -223,6 +256,10 @@ PrefabInstance:
     - target: {fileID: 1714716464291438, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915076530567624, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
       objectReference: {fileID: 0}
     - target: {fileID: 4000012515918648, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
       propertyPath: m_LocalScale.x

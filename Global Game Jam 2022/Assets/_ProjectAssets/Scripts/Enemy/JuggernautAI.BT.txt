@@ -1,5 +1,24 @@
 tree("Root")
-	repeat mute tree("Phase1")
+	parallel
+		repeat mute tree("Phase1")
+		repeat mute tree("PlayerAttacking")
+		repeat mute tree("Death")
+
+
+tree("PlayerAttacking")
+	fallback
+		tree("Tickled")
+		while HasBeenHit
+			while not HaveBeenTickled
+				ReactToHit
+
+tree("Tickled")
+	while not HasBeenHit
+		while HaveBeenTickled
+			ReactToTickle
+
+tree("Death")
+	Succeed
 
 tree("Phase1")
 	fallback

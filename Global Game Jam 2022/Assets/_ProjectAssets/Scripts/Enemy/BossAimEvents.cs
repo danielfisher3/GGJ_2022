@@ -6,6 +6,13 @@ public class BossAimEvents : MonoBehaviour
 {
     [SerializeField]JuggerNautAI jAI = null;
 
+    [SerializeField] Collider attackCollider1 = null,attackCollider2 = null;
+    
+    public void TurnOnColliders()
+    {
+        attackCollider1.enabled = true;
+        attackCollider2.enabled = true;
+    }
     public void TurnOffAttacks()
     {
         if (jAI != null)
@@ -16,6 +23,8 @@ public class BossAimEvents : MonoBehaviour
             jAI.bossAnim.SetBool("Attack4", false);
             jAI.bossAnim.SetBool("Attack5", false);
             jAI.bossAnim.SetBool("Attack6", false);
+            attackCollider1.enabled = false;
+            attackCollider2.enabled = false;
         }
     }
 }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerSword
   - PlayerHand
+  - BossAttack
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - MiniMap
   - Enemy
   - Forcefield
-  - 
+  - Boss
   - 
   - 
   - 

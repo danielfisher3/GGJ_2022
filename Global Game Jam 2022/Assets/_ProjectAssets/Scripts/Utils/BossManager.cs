@@ -24,7 +24,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] GameObject aArenaWall = null;
     [SerializeField] GameObject mArenaWall = null;
 
-
+    [SerializeField] JuggerNautAI jAI;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,13 +34,18 @@ public class BossManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ActivationBosses();
 
+    }
+
+    private void ActivationBosses()
+    {
         if (juggernautActivated)
         {
             jActivator.SetActive(false);
             jArenaWall.SetActive(true);
             juggerPrefab.SetActive(true);
-            
+
         }
 
         if (mutantActivated)
@@ -48,7 +53,7 @@ public class BossManager : MonoBehaviour
             mActivator.SetActive(false);
             mArenaWall.SetActive(true);
             mutantPrefab.SetActive(true);
-           
+
         }
 
         if (angelActivated)
@@ -56,7 +61,7 @@ public class BossManager : MonoBehaviour
             aActivator.SetActive(false);
             aArenaWall.SetActive(true);
             angelPrefab.SetActive(true);
-            
+
         }
 
         if (ogreActivated)
@@ -64,7 +69,7 @@ public class BossManager : MonoBehaviour
             oActivator.SetActive(false);
             oArenaWall.SetActive(true);
             ogrePrefab.SetActive(true);
-            
+
         }
     }
 }

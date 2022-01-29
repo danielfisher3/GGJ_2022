@@ -8,7 +8,8 @@ public class JuggerNautAI : MonoBehaviour
 {
     
     [SerializeField] Transform player;
-
+    bool hasBeenhit = false;
+    bool hasBeenTickled = false;
     [SerializeField] Slider bossHealthSlider;
     [SerializeField] int maxHealth = 1000;
     [SerializeField] int currenthealth;
@@ -18,14 +19,16 @@ public class JuggerNautAI : MonoBehaviour
     [SerializeField] float attackRange = 40.0f;
     [SerializeField] float rotSpeed;
     [SerializeField] float minXrange, maxXRange, minZRange, maxZRange,x,z;
-   
+    PandaBehaviour bTree;
     Vector3 lastAttackingPos;
     public Animator bossAnim;
     bool phase2;
     NavMeshAgent bossAgent;
+    public bool dead = false;
     private void Awake()
     {
         bossAnim = GetComponentInChildren<Animator>();
+        bTree = GetComponent<PandaBehaviour>();
     }
     // Start is called before the first frame update
     void Start()
@@ -42,7 +45,7 @@ public class JuggerNautAI : MonoBehaviour
     void Update()
     {
         bossHealthSlider.value = currenthealth;
-        if(currenthealth <= (maxHealth / 2.0f))
+        if (currenthealth <= (maxHealth / 2.0f))
         {
             phase2 = true;
         }
@@ -56,6 +59,26 @@ public class JuggerNautAI : MonoBehaviour
         {
             bossAgent.speed = 2.0f;
             visibleRange = 10;
+        }
+       
+    }
+    [Task]
+    private void ReactToTickle()
+    {
+        if (hasBeenTickled && currenthealth <= 950)
+        {
+            currenthealth = currenthealth + 50;
+            hasBeenTickled = false;
+        }
+    }
+
+    [Task]
+    private void ReactToHit()
+    {
+        if (hasBeenhit)
+        {
+            currenthealth = currenthealth - 50;
+            hasBeenhit = false;
         }
     }
 
@@ -226,7 +249,17 @@ public class JuggerNautAI : MonoBehaviour
         Task.current.Succeed();
     }
 
+    [Task]
+    public bool HasBeenHit()
+    {
+        return hasBeenhit;
+    }
 
+    [Task]
+    public bool HaveBeenTickled()
+    {
+        return hasBeenTickled;
+    }
 
     [Task]
     bool AttackLinedUp()
@@ -237,7 +270,23 @@ public class JuggerNautAI : MonoBehaviour
         else
             return false;
     }
-
+    [Task]
+    public void Die()
+    {
+        dead = true;
+        bossAnim.SetBool("Walk", false);
+        bossAnim.SetBool("Run", false);
+        bossAnim.SetBool("Attack2", false);
+        bossAnim.SetBool("Attack1", false);
+        bossAnim.SetBool("Attack3", false);
+        bossAnim.SetBool("Attack4", false);
+        bossAnim.SetBool("Attack5", false);
+        bossAnim.SetBool("Attack6", false);
+        bossAnim.SetBool("Death", true);
+        bTree.enabled = false;
+        Task.current.Succeed();
+        
+    }
     [Task]
     public void Attack1()
     {
@@ -335,9 +384,17 @@ public class JuggerNautAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (hasBeenhit || hasBeenTickled) return;
         if(other.gameObject.tag == "PlayerSword")
         {
-            print(other.gameObject.name);
+            if(other.gameObject.name == "DivineSword")
+            {
+                hasBeenhit = true;
+            }
+            else if(other.gameObject.name == "EvilSword")
+            {
+                hasBeenTickled = true;
+            }
         }
     }
 
