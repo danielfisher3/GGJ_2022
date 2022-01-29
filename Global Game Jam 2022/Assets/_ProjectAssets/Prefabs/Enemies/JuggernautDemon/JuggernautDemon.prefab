@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jAI: {fileID: 1020381638864562546}
+  aAI: {fileID: 0}
+  oAI: {fileID: 0}
   attackCollider1: {fileID: 3114353857812301241}
   attackCollider2: {fileID: 4863281879077024769}
 --- !u!54 &4912159332346615922

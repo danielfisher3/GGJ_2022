@@ -53,7 +53,6 @@ tree("Phase2Stalk")
 	while SeePlayer
 		sequence
 			TargetPlayer
-			LookAtTarget
 			fallback
 				while AttackLinedUp
 					sequence
