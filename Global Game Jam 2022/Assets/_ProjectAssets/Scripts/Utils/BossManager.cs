@@ -21,15 +21,16 @@ public class BossManager : MonoBehaviour
     Animator aWallAnimator =  null;
     [SerializeField] GameObject jArenaWall;
     [SerializeField] GameObject oArenaWall = null;
-    [SerializeField] GameObject aArenaWall = null;
+    [SerializeField] GameObject aArenaWall;
     [SerializeField] GameObject mArenaWall = null;
 
     [SerializeField] JuggerNautAI jAI;
+    [SerializeField] AngelAI aAI;
     // Start is called before the first frame update
     void Start()
     {
         
-        aWallAnimator = GetComponent<Animator>();
+        
     }
 
     // Update is called once per frame
@@ -42,6 +43,13 @@ public class BossManager : MonoBehaviour
             if (jAI.dead == true)
             {
                 aWallAnimator.SetBool("JWallDown", true);
+            }
+        }
+        if (angelActivated)
+        {
+            if(aAI.dead == true)
+            {
+                aWallAnimator.SetBool("AWallDown", true);
             }
         }
 
@@ -62,6 +70,7 @@ public class BossManager : MonoBehaviour
             mActivator.SetActive(false);
             mArenaWall.SetActive(true);
             mutantPrefab.SetActive(true);
+            
 
         }
 
@@ -70,6 +79,7 @@ public class BossManager : MonoBehaviour
             aActivator.SetActive(false);
             aArenaWall.SetActive(true);
             angelPrefab.SetActive(true);
+            aWallAnimator = aArenaWall.GetComponent<Animator>();
 
         }
 

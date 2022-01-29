@@ -83,7 +83,7 @@ tree("LookAround")
 					Turn(135.0)
 					Turn(-135.0)
 				LookAtTarget
-				WaitRandom(2.0,5.0)
+				WaitRandom(1.0,3.0)
 				random
 					Fail
 					Succeed
@@ -92,7 +92,6 @@ tree("StalkPlayer")
 	while SeePlayer
 		sequence
 			TargetPlayer
-			LookAtTarget
 			fallback
 				while AttackLinedUp
 					sequence

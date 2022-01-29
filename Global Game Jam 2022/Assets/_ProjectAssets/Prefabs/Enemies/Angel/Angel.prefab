@@ -32,19 +32,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
---- !u!65 &6623998298725711833
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6623998298041797213}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8013057, y: 0.07527957, z: 0.6501997}
-  m_Center: {x: 0.005094846, y: 0.0000816693, z: -0.7279099}
 --- !u!65 &6623998298725711815
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -58,6 +45,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.093055554, y: 0.07527957, z: 1.4159294}
   m_Center: {x: -0.21422826, y: 0.0000688621, z: 0.34365106}
+--- !u!65 &6623998298725711833
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6623998298041797213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 0
+  serializedVersion: 2
+  m_Size: {x: 0.8013057, y: 0.07527957, z: 0.6501997}
+  m_Center: {x: 0.005094846, y: 0.0000816693, z: -0.7279099}
+--- !u!114 &5851688556540977386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6623998298041797213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffed822e179cdfd45a9805036cf44704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  evil: 0
 --- !u!1 &6623998298891116177
 GameObject:
   m_ObjectHideFlags: 0
@@ -78,7 +91,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6623998298891116187
 Transform:
   m_ObjectHideFlags: 0
@@ -164,13 +177,13 @@ MonoBehaviour:
   currenthealth: 0
   destination: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
-  visibleRange: 5
-  attackRange: 2
+  visibleRange: 20
+  attackRange: 5
   rotSpeed: 1
-  minXrange: -5
-  maxXRange: 5
-  minZRange: -5
-  maxZRange: 5
+  minXrange: -25
+  maxXRange: 25
+  minZRange: -25
+  maxZRange: 25
   x: 0
   z: 0
   bossAnim: {fileID: 6623998298032281143}
@@ -559,11 +572,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157400, guid: 8a251074019479247b76862c9f7c0ba7, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 157400, guid: 8a251074019479247b76862c9f7c0ba7, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 157400, guid: 8a251074019479247b76862c9f7c0ba7, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
       objectReference: {fileID: 0}
     - target: {fileID: 159372, guid: 8a251074019479247b76862c9f7c0ba7, type: 3}
       propertyPath: m_Layer

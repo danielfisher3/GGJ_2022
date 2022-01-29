@@ -26,6 +26,10 @@ public class ForceFieldChecker : MonoBehaviour
             {
                 attackCollider.enabled = false;
             }
+            else if(other.gameObject.name == "Evil" && !evil)
+            {
+                attackCollider.enabled = false;
+            }
         }
     }
 }

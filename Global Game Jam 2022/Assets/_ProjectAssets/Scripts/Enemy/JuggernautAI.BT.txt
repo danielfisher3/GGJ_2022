@@ -93,7 +93,6 @@ tree("StalkPlayer")
 	while SeePlayer
 		sequence
 			TargetPlayer
-			LookAtTarget
 			fallback
 				while AttackLinedUp
 					sequence
