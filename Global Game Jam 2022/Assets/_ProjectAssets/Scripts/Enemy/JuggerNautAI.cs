@@ -71,6 +71,7 @@ public class JuggerNautAI : MonoBehaviour
         {
             currenthealth = currenthealth + 50;
             hasBeenTickled = false;
+            Task.current.Succeed();
         }
     }
 
@@ -79,8 +80,10 @@ public class JuggerNautAI : MonoBehaviour
     {
         if (hasBeenhit)
         {
+            bossAnim.SetTrigger("BeenHit");
             currenthealth = currenthealth - 50;
             hasBeenhit = false;
+                Task.current.Succeed();
         }
     }
 
