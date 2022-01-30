@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerHitDetection : MonoBehaviour
 {
     [SerializeField] PlayerHealthStaminaUI playerHealth;
-    bool beenHit;
+    bool beenHitBoss,beenHitEnemy;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,17 +16,27 @@ public class PlayerHitDetection : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (beenHit)
+        if (beenHitBoss)
         {
             playerHealth.DecreaseHealth(25);
-            beenHit = false;
+            beenHitBoss = false;
+        }
+
+        if (beenHitEnemy)
+        {
+            playerHealth.DecreaseHealth(5);
+            beenHitEnemy = false;
         }
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "BossAttack" && !beenHit)
+        if(other.gameObject.tag == "BossAttack" && !beenHitBoss)
         {
-            beenHit = true;
+            beenHitBoss = true;
+        }
+        if(other.gameObject.tag == "EnemyAttack" && !beenHitEnemy)
+        {
+            beenHitEnemy = true;
         }
     }
 }

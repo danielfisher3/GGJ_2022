@@ -18,7 +18,7 @@ public class HitDetection : MonoBehaviour
     {
         if (hasbeenhit)
         {
-            enemyHealth.DecreaseEnemyHealth(10);
+            enemyHealth.DecreaseEnemyHealth(25);
             pcontrol.sword1.enabled = false;
             hasbeenhit = false;
         }

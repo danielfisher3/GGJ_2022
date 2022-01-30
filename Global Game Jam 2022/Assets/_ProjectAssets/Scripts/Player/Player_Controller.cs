@@ -24,6 +24,7 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] GameObject evilAura;
     [SerializeField] GameObject forceFieldD;
     [SerializeField] GameObject forceFieldE;
+    public bool dead = false;
     bool walk;
     float clampedX;
     float inputHorizontal;
@@ -36,6 +37,8 @@ public class Player_Controller : MonoBehaviour
     float attackCooldownLight = 1.0f;
     float timesincelastAttackHeavy;
     float attackCooldownHeavy = 1.0f;
+    public bool swapSwordColliders;
+    [SerializeField] GameObject divineSwordNoC, divineSwordC, evilSwordNoC, evilSwordC;
     #endregion
 
     #region Unity Native
@@ -69,6 +72,7 @@ public class Player_Controller : MonoBehaviour
         DivineDemonSwap();
         Sneer();
         ForcefieldDeployment();
+        Die();
         if(forceDeployed && forceActive)
         {
             Timer += Time.deltaTime;
@@ -86,6 +90,18 @@ public class Player_Controller : MonoBehaviour
                 }
                 forceDeployed = false;
             }
+        }
+        if (swapSwordColliders && demonForm)
+        {
+            evilSwordC.SetActive(false);
+            evilSwordNoC.SetActive(true);
+            swapSwordColliders = false;
+        }
+        if(swapSwordColliders && !demonForm)
+        {
+            divineSwordC.SetActive(false);
+            divineSwordNoC.SetActive(true);
+            swapSwordColliders = false;
         }
     }
 
@@ -206,7 +222,7 @@ public class Player_Controller : MonoBehaviour
                 playerGUIController.DecreaseStamina(10);
                 
 
-                divineAnim.SetTrigger("LAttack1");
+                divineAnim.SetBool("LAttack1",true);
 
             }
         }
@@ -221,11 +237,23 @@ public class Player_Controller : MonoBehaviour
                 playerGUIController.DecreaseStamina(20);
                
 
-                divineAnim.SetTrigger("HAttack1");
+                divineAnim.SetBool("HAttack1",true);
             }
         }
     }
 
+    void Die()
+    {
+        if(playerGUIController.currentHealth < 1)
+        {
+            divineAnim.SetBool("HAttack1", false);
+            divineAnim.SetBool("LAttack1", false);
+            divineAnim.SetBool("Run", false);
+            divineAnim.SetBool("Walk", false);
+            divineAnim.SetBool("Death", true);
+            this.enabled = false;
+        }
+    }
     void Sneer()
     {
         if(Input.GetKeyUp(KeyCode.Mouse2))

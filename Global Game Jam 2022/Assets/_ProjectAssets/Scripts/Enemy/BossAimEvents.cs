@@ -68,5 +68,13 @@ public class BossAimEvents : MonoBehaviour
         {
             aAI.bossAnim.SetBool("BeenHit", false);
         }
+        if(jAI != null)
+        {
+            jAI.bossAnim.SetBool("BeenHit", false);
+        }
+        if(mAI != null)
+        {
+            mAI.bossAnim.SetBool("BeenHit", false);
+        }
     }
 }

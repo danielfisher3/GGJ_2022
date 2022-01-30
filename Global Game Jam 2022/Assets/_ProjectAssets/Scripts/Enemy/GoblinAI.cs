@@ -205,7 +205,7 @@ public class GoblinAI : MonoBehaviour
     public void TakeHit()
     {
 
-        enemyAnim.SetTrigger("BeenHit");
+        enemyAnim.SetBool("BeenHit",true);
         Task.current.Succeed();
     }
     [Task]

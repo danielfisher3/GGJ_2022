@@ -4,34 +4,33 @@ using UnityEngine;
 
 public class PlayerAnimEvents : MonoBehaviour
 {
-    [SerializeField] Collider divineSword, evilSword;
+    [SerializeField] GameObject divineSwordNoC, divineSwordC, evilSwordNoC,evilSwordC;
     [SerializeField]Player_Controller control;
+    Animator pAnim;
 
     private void Start()
     {
-        
+        pAnim = GetComponent<Animator>();
     }
     public void TurnOnSwordCollider()
     {
         if (control.demonForm)
         {
-            evilSword.enabled = true;
+            evilSwordC.SetActive(true);
+            evilSwordNoC.SetActive(false);
         }
 
         if (!control.demonForm)
         {
-            divineSword.enabled = true;
+            divineSwordC.SetActive(true);
+            divineSwordNoC.SetActive(false);
+           
         }
     }
     public void TurnOffSwordCollider()
     {
-        if (control.demonForm)
-        {
-            evilSword.enabled = false;
-        }
-        if (!control.demonForm)
-        {
-            divineSword.enabled = false;
-        }
+        pAnim.SetBool("LAttack1", false);
+        pAnim.SetBool("HAttack1", false);
+        control.swapSwordColliders = true;
     }
 }

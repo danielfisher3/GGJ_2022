@@ -15,6 +15,7 @@ MonoBehaviour:
   jAI: {fileID: 1020381638864562546}
   aAI: {fileID: 0}
   oAI: {fileID: 0}
+  mAI: {fileID: 0}
   attackCollider1: {fileID: 3114353857812301241}
   attackCollider2: {fileID: 4863281879077024769}
 --- !u!54 &4912159332346615922
@@ -249,6 +250,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 7285533655154920565}
     m_Modifications:
     - target: {fileID: 1582038262163254, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1582038262163254, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
       propertyPath: m_TagString
       value: BossAttack
       objectReference: {fileID: 0}
@@ -259,6 +264,10 @@ PrefabInstance:
     - target: {fileID: 1714716464291438, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1915076530567624, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1915076530567624, guid: 9092396a09d322a48a87d1785d1bdac4, type: 3}
       propertyPath: m_TagString

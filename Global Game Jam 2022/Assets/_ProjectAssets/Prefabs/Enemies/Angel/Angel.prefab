@@ -15,6 +15,7 @@ MonoBehaviour:
   jAI: {fileID: 0}
   aAI: {fileID: 6623998298891116191}
   oAI: {fileID: 0}
+  mAI: {fileID: 0}
   attackCollider1: {fileID: 6623998298725711833}
   attackCollider2: {fileID: 6623998298725711833}
 --- !u!54 &6623998298725711832
@@ -573,7 +574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 157400, guid: 8a251074019479247b76862c9f7c0ba7, type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 157400, guid: 8a251074019479247b76862c9f7c0ba7, type: 3}
       propertyPath: m_IsActive
