@@ -19,8 +19,8 @@ TagManager:
   - Enemy
   - Forcefield
   - Boss
-  - 
-  - 
+  - PlayerWeapon
+  - BossWeapon
   - 
   - 
   - 

@@ -80,7 +80,7 @@ public class AngelAI : MonoBehaviour
     {
         if (hasBeenhit)
         {
-            bossAnim.SetTrigger("BeenHit");
+            bossAnim.SetBool("BeenHit",true);
             currenthealth = currenthealth - 50;
             hasBeenhit = false;
             Task.current.Succeed();

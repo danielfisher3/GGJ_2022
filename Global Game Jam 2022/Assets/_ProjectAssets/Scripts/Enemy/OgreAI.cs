@@ -26,6 +26,10 @@ public class OgreAI : MonoBehaviour
     NavMeshAgent bossAgent;
     public bool dead = false;
     [SerializeField] Text bossSliderText;
+    float timeSinceLasthit;
+    float hitCoolDown = 1.0f;
+    float timesinceLastBoost;
+    float boostCoolDown = 1.0f;
     private void Awake()
     {
         bossAnim = GetComponentInChildren<Animator>();
@@ -67,8 +71,9 @@ public class OgreAI : MonoBehaviour
     [Task]
     private void ReactToTickle()
     {
-        if (hasBeenTickled && currenthealth <= 950)
+        if (hasBeenTickled && currenthealth <= 950 && Time.time > timesinceLastBoost)
         {
+            timesinceLastBoost = Time.time + boostCoolDown;
             currenthealth = currenthealth + 50;
             hasBeenTickled = false;
             Task.current.Succeed();
@@ -78,9 +83,10 @@ public class OgreAI : MonoBehaviour
     [Task]
     private void ReactToHit()
     {
-        if (hasBeenhit)
+        if (hasBeenhit )
         {
-            bossAnim.SetTrigger("BeenHit");
+           
+            bossAnim.SetBool("BeenHit",true);
             currenthealth = currenthealth - 50;
             hasBeenhit = false;
             Task.current.Succeed();
@@ -349,10 +355,12 @@ public class OgreAI : MonoBehaviour
             if (other.gameObject.name == "DivineSword")
             {
                 hasBeenTickled = true;
+                hasBeenhit = false;
             }
             else if (other.gameObject.name == "EvilSword")
             {
                 hasBeenhit = true;
+                hasBeenTickled = false;
             }
         }
     }

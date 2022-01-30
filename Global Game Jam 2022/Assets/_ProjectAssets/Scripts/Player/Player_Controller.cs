@@ -32,8 +32,10 @@ public class Player_Controller : MonoBehaviour
     public bool forceDeployed = false;
     float Timer;
     [SerializeField] float timeToOffFF = 2.0f;
-    float timesincelastattack;
-    float attackCooldown = 1.0f;
+    float timesincelastattackLight;
+    float attackCooldownLight = 1.0f;
+    float timesincelastAttackHeavy;
+    float attackCooldownHeavy = 1.0f;
     #endregion
 
     #region Unity Native
@@ -196,25 +198,31 @@ public class Player_Controller : MonoBehaviour
     }
     void LightAttack()
     {
-        if (Input.GetButtonUp("LightAttack"))
+        if (playerGUIController.currentStamina >= 10)
         {
-            playerGUIController.DecreaseStamina(10);
-            sword1.enabled = true;
-         
-            divineAnim.SetTrigger("LAttack1");
-         
+            if (Input.GetButtonUp("LightAttack") && Time.time > timesincelastattackLight)
+            {
+                timesincelastattackLight = Time.time + attackCooldownLight;
+                playerGUIController.DecreaseStamina(10);
+                
+
+                divineAnim.SetTrigger("LAttack1");
+
+            }
         }
     }
     void HardAttck()
     {
-        
-        if (Input.GetButtonUp("HardAttack"))
+        if (playerGUIController.currentStamina >= 20)
         {
-           
-            playerGUIController.DecreaseStamina(20);
-            sword1.enabled = true;
-            
-            divineAnim.SetTrigger("HAttack1");
+            if (Input.GetButtonUp("HardAttack") && Time.time > timesincelastAttackHeavy)
+            {
+                timesincelastAttackHeavy = Time.time + attackCooldownHeavy;
+                playerGUIController.DecreaseStamina(20);
+               
+
+                divineAnim.SetTrigger("HAttack1");
+            }
         }
     }
 

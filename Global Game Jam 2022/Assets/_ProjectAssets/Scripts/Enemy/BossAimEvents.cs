@@ -58,4 +58,15 @@ public class BossAimEvents : MonoBehaviour
             attackCollider2.enabled = false;
         }
     }
+    public void TurnOffBeenHit()
+    {
+        if(oAI != null)
+        {
+            oAI.bossAnim.SetBool("BeenHit", false);
+        }
+        if(aAI != null)
+        {
+            aAI.bossAnim.SetBool("BeenHit", false);
+        }
+    }
 }

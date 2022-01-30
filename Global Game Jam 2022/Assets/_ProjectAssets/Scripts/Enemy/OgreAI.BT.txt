@@ -11,6 +11,7 @@ tree("PlayerAttacking")
 		while HasBeenHit
 			while not HaveBeenTickled
 				ReactToHit
+				
 
 tree("Tickled")
 	while not HasBeenHit

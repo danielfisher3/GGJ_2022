@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &610899003217298434
 Transform:
   m_ObjectHideFlags: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   target: {x: 0, y: 0, z: 0}
   visibleRange: 25
-  attackRange: 3
+  attackRange: 5
   rotSpeed: 1
   minXrange: -15
   maxXRange: 15
@@ -168,12 +168,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610899003603763680}
-  m_LocalRotation: {x: -0.20209351, y: 0.06546922, z: 0.30115265, w: 0.9296124}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_LocalRotation: {x: -0.36242375, y: -0.626572, z: 0.5448713, w: 0.42328689}
+  m_LocalPosition: {x: 0.038821857, y: 0.055045545, z: -0.35874617}
+  m_LocalScale: {x: 0.6892222, y: 0.6892379, z: 0.6894479}
   m_Children: []
-  m_Father: {fileID: 606389025924572101}
-  m_RootOrder: 1
+  m_Father: {fileID: 606797592173619197}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -24.53, y: 0, z: 35.9}
 --- !u!33 &610899003603763685
 MeshFilter:
@@ -235,10 +235,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 0.2249191
+  m_Radius: 0.39616987
   m_Height: 1.5309244
   m_Direction: 1
-  m_Center: {x: -0.16493456, y: -0.23452719, z: 0.021277456}
+  m_Center: {x: -0.3362739, y: -0.23372549, z: 0.019017061}
 --- !u!54 &610899003603763682
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -251,7 +251,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
@@ -296,12 +296,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 610899003645116111}
-  m_LocalRotation: {x: 0.06490634, y: -0.33109197, z: 0.3740402, w: 0.863863}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.004999305, y: 0.0050002015, z: 0.0050004916}
+  m_LocalRotation: {x: -0.38023186, y: -0.6161397, z: 0.5334278, w: 0.43732193}
+  m_LocalPosition: {x: 0.033271845, y: 0.061114565, z: -0.34294772}
+  m_LocalScale: {x: 0.68922186, y: 0.6892378, z: 0.6894476}
   m_Children: []
-  m_Father: {fileID: 609394163609330735}
-  m_RootOrder: 1
+  m_Father: {fileID: 606386476336747717}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -24.53, y: 0, z: 35.9}
 --- !u!33 &610899003645116148
 MeshFilter:
@@ -363,10 +363,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 0
-  m_Radius: 0.25943142
-  m_Height: 1.5309244
+  m_Radius: 0.4180381
+  m_Height: 1.5309246
   m_Direction: 1
-  m_Center: {x: -0.16496918, y: -0.23451939, z: 0.19303325}
+  m_Center: {x: -0.3237561, y: -0.23527779, z: 0.19750379}
 --- !u!54 &610899003645116145
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -379,7 +379,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 0
@@ -411,6 +411,7 @@ MonoBehaviour:
   jAI: {fileID: 0}
   aAI: {fileID: 0}
   oAI: {fileID: 610899003217298462}
+  mAI: {fileID: 0}
   attackCollider1: {fileID: 610899003603763683}
   attackCollider2: {fileID: 610899003645116146}
 --- !u!1001 &610899002788346169
@@ -2989,13 +2990,13 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 95716040400269070, guid: 03228ebb154d829419e0ed3940352524, type: 3}
   m_PrefabInstance: {fileID: 610899002788346169}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &606389025924572101 stripped
+--- !u!4 &606386476336747717 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4515639280212732, guid: 03228ebb154d829419e0ed3940352524, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4512539877699068, guid: 03228ebb154d829419e0ed3940352524, type: 3}
   m_PrefabInstance: {fileID: 610899002788346169}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &609394163609330735 stripped
+--- !u!4 &606797592173619197 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4320717184670998, guid: 03228ebb154d829419e0ed3940352524, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4959183766347460, guid: 03228ebb154d829419e0ed3940352524, type: 3}
   m_PrefabInstance: {fileID: 610899002788346169}
   m_PrefabAsset: {fileID: 0}

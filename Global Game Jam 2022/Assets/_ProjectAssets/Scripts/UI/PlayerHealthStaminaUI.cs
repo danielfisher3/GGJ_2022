@@ -14,8 +14,8 @@ public class PlayerHealthStaminaUI : MonoBehaviour
     [SerializeField] int maxHealth = 100;
     [SerializeField] int maxStamina = 100;
 
-    [SerializeField] int currentHealth;
-    [SerializeField] int currentStamina;
+    public int currentHealth;
+    public int currentStamina;
 
     float StaminaTimer;
     private void Awake()
