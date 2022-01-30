@@ -31839,6 +31839,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 137783631, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1060838567698524540, guid: 9a754ce2f61ca29489fb8996b16aa21d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -36184,6 +36188,10 @@ PrefabInstance:
     - target: {fileID: 8177892077881052473, guid: b8b8828692368004993c48465f4c922e, type: 3}
       propertyPath: m_Name
       value: JuggernautDemon
+      objectReference: {fileID: 0}
+    - target: {fileID: 8177892077881052473, guid: b8b8828692368004993c48465f4c922e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b8828692368004993c48465f4c922e, type: 3}
