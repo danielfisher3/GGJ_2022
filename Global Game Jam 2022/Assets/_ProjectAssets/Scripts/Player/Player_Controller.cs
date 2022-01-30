@@ -72,7 +72,7 @@ public class Player_Controller : MonoBehaviour
         DivineDemonSwap();
         Sneer();
         ForcefieldDeployment();
-        //Die();
+        Die();
         if(forceDeployed && forceActive)
         {
             Timer += Time.deltaTime;
@@ -251,6 +251,7 @@ public class Player_Controller : MonoBehaviour
             divineAnim.SetBool("Run", false);
             divineAnim.SetBool("Walk", false);
             divineAnim.SetBool("Death", true);
+            dead = true;
             this.enabled = false;
         }
     }

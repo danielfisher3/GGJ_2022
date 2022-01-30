@@ -5,6 +5,7 @@ R- Run
 I- Inventory
 M- Map
 Q-Forcefield
+D-HealthPack
 
 Mouse movement - Rotate/Look
 Left mouse click - light Attack

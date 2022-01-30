@@ -844,6 +844,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: JuggernautDemon
       objectReference: {fileID: 0}
+    - target: {fileID: 8177892077881052473, guid: b8b8828692368004993c48465f4c922e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b8828692368004993c48465f4c922e, type: 3}
 --- !u!1001 &5380588044172373480
