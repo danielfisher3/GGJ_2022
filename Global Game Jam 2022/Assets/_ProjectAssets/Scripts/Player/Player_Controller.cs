@@ -48,8 +48,7 @@ public class Player_Controller : MonoBehaviour
     }
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        
         sword1.enabled = false;
 
         if (liveMap.activeInHierarchy)
