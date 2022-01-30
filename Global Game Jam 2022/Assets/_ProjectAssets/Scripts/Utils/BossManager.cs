@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class BossManager : MonoBehaviour
@@ -10,6 +11,7 @@ public class BossManager : MonoBehaviour
     public bool ogreActivated = false;
     public bool angelActivated = false;
     public bool mutantActivated = false;
+    float Timer = 0;
     [SerializeField] GameObject bossSlider;
     [SerializeField] GameObject juggerPrefab;
     [SerializeField] GameObject ogrePrefab;
@@ -124,6 +126,16 @@ public class BossManager : MonoBehaviour
             ogrePrefab.SetActive(true);
             aWallAnimator = oArenaWall.GetComponent<Animator>();
 
+        }
+
+        if(jAI.dead && aAI.dead && mAI.dead && oAI.dead)
+        {
+            Timer += Time.deltaTime;
+            if (Timer >= 5.0f)
+            {
+                SceneManager.LoadScene("DeathKing");
+                Timer = 0;
+            }
         }
     }
 }

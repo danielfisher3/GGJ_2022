@@ -372,18 +372,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Developed by: Daniel Fisher
-
-    AudioManger: Nicholas Doiron
-
-    Assets:
-
-    Unity
-    Asset Store
-
-    CGTrader
-
-    TurboSquid'
+  m_Text: "Developed by: Daniel Fisher\nAudioManger: Nicholas Doiron\nVoice: Mario
+    P. Fields\n\t (SGT MAJ Ret.)\nAssets:\nUnity Asset Store\nCGTrader\nTurboSquid"
 --- !u!222 &1299313514
 CanvasRenderer:
   m_ObjectHideFlags: 0

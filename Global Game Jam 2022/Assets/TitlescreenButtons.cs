@@ -38,7 +38,7 @@ public class TitlescreenButtons : MonoBehaviour
     {
         if (game)
         {
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene("BeginningStory");
             game = false;
         }
         if (credits)
@@ -51,5 +51,9 @@ public class TitlescreenButtons : MonoBehaviour
             SceneManager.LoadScene("Control");
             controls = false;
         }
+    }
+    public void PlayLaugh()
+    {
+        AudioManager.instance.Laugh();
     }
 }
