@@ -285,8 +285,7 @@ public class MutantAI : MonoBehaviour
         bossAnim.SetBool("Attack1", false);
         bossAnim.SetBool("Attack3", false);
         bossAnim.SetBool("Attack4", false);
-        bossAnim.SetBool("Attack5", false);
-        bossAnim.SetBool("Attack6", false);
+        bossAnim.SetBool("BeenHit", false);
         bossAnim.SetBool("Death", true);
         bTree.enabled = false;
         Task.current.Succeed();

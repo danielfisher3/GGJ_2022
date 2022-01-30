@@ -72,7 +72,7 @@ public class Player_Controller : MonoBehaviour
         DivineDemonSwap();
         Sneer();
         ForcefieldDeployment();
-        Die();
+        //Die();
         if(forceDeployed && forceActive)
         {
             Timer += Time.deltaTime;

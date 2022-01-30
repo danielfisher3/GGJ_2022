@@ -284,7 +284,7 @@ public class AngelAI : MonoBehaviour
         bossAnim.SetBool("Attack2", false);
         bossAnim.SetBool("Attack1", false);
         bossAnim.SetBool("Attack3", false);
-       
+        bossAnim.SetBool("BeenHit", false);
         bossAnim.SetBool("Death", true);
         bTree.enabled = false;
         Task.current.Succeed();

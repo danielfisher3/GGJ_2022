@@ -8,7 +8,8 @@ public class BossAimEvents : MonoBehaviour
     [SerializeField] AngelAI aAI = null;
     [SerializeField] OgreAI oAI = null;
     [SerializeField] MutantAI mAI = null;
-
+    [SerializeField] DeathKingAI dkAI = null;
+    public bool deathKingDead;
     [SerializeField] Collider attackCollider1 = null,attackCollider2 = null;
     
     public void TurnOnColliders()
@@ -57,6 +58,19 @@ public class BossAimEvents : MonoBehaviour
             attackCollider1.enabled = false;
             attackCollider2.enabled = false;
         }
+        if(dkAI != null)
+        {
+            dkAI.bossAnim.SetBool("Attack1", false);
+            dkAI.bossAnim.SetBool("Attack2", false);
+            dkAI.bossAnim.SetBool("Attack3", false);
+            dkAI.bossAnim.SetBool("Attack4", false);
+            dkAI.bossAnim.SetBool("Attack5", false);
+            dkAI.bossAnim.SetBool("Attack6", false);
+            dkAI.bossAnim.SetBool("Attack7", false);
+
+            attackCollider1.enabled = false;
+            attackCollider2.enabled = false;
+        }
     }
     public void TurnOffBeenHit()
     {
@@ -75,6 +89,10 @@ public class BossAimEvents : MonoBehaviour
         if(mAI != null)
         {
             mAI.bossAnim.SetBool("BeenHit", false);
+        }
+        if(dkAI != null)
+        {
+            dkAI.bossAnim.SetBool("BeenHit", false);
         }
     }
 }

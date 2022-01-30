@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class BossManager : MonoBehaviour
@@ -30,6 +31,7 @@ public class BossManager : MonoBehaviour
     [SerializeField] OgreAI oAI;
     [SerializeField] MutantAI mAI;
 
+    [SerializeField] GameObject checkMark1, checkMark2, checkMark3, checkMark4;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +52,7 @@ public class BossManager : MonoBehaviour
 
                 bossSlider.SetActive(false);
                 juggernautActivated = false;
+                checkMark1.SetActive(true);
             }
         }
         if (angelActivated)
@@ -59,6 +62,7 @@ public class BossManager : MonoBehaviour
                 aWallAnimator.SetBool("AWallDown", true);
                 bossSlider.SetActive(false);
                 angelActivated = false;
+                checkMark2.SetActive(true);
             }
         }
         if (ogreActivated)
@@ -68,6 +72,7 @@ public class BossManager : MonoBehaviour
                 aWallAnimator.SetBool("OWallDown", true);
                 bossSlider.SetActive(false);
                 ogreActivated = false;
+                checkMark3.SetActive(true);
             }
         }
         if (mutantActivated)
@@ -77,6 +82,7 @@ public class BossManager : MonoBehaviour
                 aWallAnimator.SetBool("MWallDown", true);
                 bossSlider.SetActive(false);
                 mutantActivated = false;
+                checkMark4.SetActive(true);
             }
         }
 
