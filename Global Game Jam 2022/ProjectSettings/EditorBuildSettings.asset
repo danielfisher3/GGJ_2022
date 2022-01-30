@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/3DmediaScreen.unity
+    guid: 5d514f3aa487ba94b88d043321310dbb
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/TitleScreen.unity
+    guid: 03f39937211b3634d9fc3fd26686cb62
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/Credits.unity
+    guid: c6944b51e670a9a4085f7b1c317d299a
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/Control.unity
+    guid: f3c21bb43159ba441b79d1204b371e39
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/GameScene.unity
+    guid: 1add07eba570c5c4aa664d2772105bca
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/DeathKing.unity
+    guid: 3175bd34769ddef468251472d9e9f81f
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/Death.unity
+    guid: a92ebc7dd9f49e942a3d2742371418ce
+  - enabled: 1
+    path: Assets/_ProjectAssets/Scenes/Scenes/Win.unity
+    guid: 5ff5d55b5c4a353448027f4d7c91ba4f
   m_configObjects: {}
